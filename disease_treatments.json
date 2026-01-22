@@ -1,0 +1,2330 @@
+{
+  "Apple_Apple_scab": {
+    "name": "Apple Scab",
+    "description": "A fungal disease that causes olive-green or brown spots on leaves and fruit.",
+    "treatment": [
+      "Remove and destroy fallen leaves in autumn",
+      "Prune to improve air circulation",
+      "Apply fungicides at green tip stage"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Mancozeb + Myclobutanil",
+        "dosage_per_hectare": 2.5,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Wear protective clothing during application. Keep away from water bodies.",
+        "video_sources": {
+          "primary": "Search: 'Apple Scab Disease Management University Extension'",
+          "reliable_channels": [
+            "University of California Agriculture and Natural Resources",
+            "Cornell University Cooperative Extension",
+            "Michigan State University Extension"
+          ],
+          "search_terms": ["apple scab fungicide application", "apple scab integrated management", "apple orchard disease control"]
+        }
+      },
+      "organic": {
+        "name": "Sulfur spray",
+        "dosage_per_hectare": 4.0,
+        "unit": "kg",
+        "usage": "Dilute and spray on foliage",
+        "application_frequency": "Every 7 days",
+        "precautions": "Apply in cool weather to avoid leaf burn. Do not apply when temperatures exceed 80°F.",
+        "video_sources": {
+          "primary": "Search: 'Organic Apple Scab Treatment Sulfur Spray'",
+          "reliable_channels": [
+            "Rodale Institute",
+            "ATTRA Sustainable Agriculture",
+            "Organic Growers Alliance"
+          ],
+          "search_terms": ["organic apple scab control", "sulfur spray application technique", "organic orchard management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/plant-diseases/apple-scab",
+        "https://www.canr.msu.edu/apples/disease_management"
+      ],
+      "step_by_step_guide": [
+        "1. Monitor weather conditions - apply preventative treatments before rain",
+        "2. Start applications at green tip stage (early spring)",
+        "3. Ensure complete coverage of leaves and developing fruit",
+        "4. Repeat applications based on weather and product label",
+        "5. Maintain spray schedule through petal fall and early fruit development"
+      ]
+    }
+  },
+
+  "Apple_Black_rot": {
+    "name": "Apple Black Rot",
+    "description": "A fungal disease causing leaf spots, fruit rot, and cankers on branches.",
+    "treatment": [
+      "Remove mummified fruit and cankers",
+      "Improve air circulation through pruning",
+      "Apply protective fungicides"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Captan + Thiophanate-methyl",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 10-14 days",
+        "precautions": "Apply during dry weather. Avoid application before rain.",
+        "video_sources": {
+          "primary": "Search: 'Apple Black Rot Disease Management Extension'",
+          "reliable_channels": [
+            "Pennsylvania State University Extension",
+            "University of Georgia Extension",
+            "Washington State University Extension"
+          ],
+          "search_terms": ["apple black rot control", "diplodia canker management", "apple fruit rot diseases"]
+        }
+      },
+      "organic": {
+        "name": "Copper hydroxide",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Dilute and spray on foliage",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "May cause fruit russeting in some apple varieties.",
+        "video_sources": {
+          "primary": "Search: 'Organic Apple Disease Control Copper'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "Northeast Organic Farming Association",
+            "Sustainable Agriculture Research and Education"
+          ],
+          "search_terms": ["organic copper spray apples", "natural apple disease control", "organic orchard management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.psu.edu/apple-black-rot",
+        "https://plantpathology.ca.uky.edu/files/ppfs-fr-t-02.pdf"
+      ],
+      "step_by_step_guide": [
+        "1. Inspect trees during dormant season for cankers and mummified fruit",
+        "2. Remove and destroy all infected material",
+        "3. Begin fungicide applications at pink bud stage",
+        "4. Continue through petal fall and early fruit development",
+        "5. Focus on thorough coverage of fruit clusters",
+        "6. Maintain proper orchard sanitation throughout season"
+      ]
+    }
+  },
+
+  "Apple_Cedar_apple_rust": {
+    "name": "Apple Cedar Apple Rust",
+    "description": "A fungal disease causing bright yellow-orange spots on apple leaves and orange gelatinous growths on cedar trees.",
+    "treatment": [
+      "Remove nearby cedar trees if possible",
+      "Apply fungicides during spring growth",
+      "Plant resistant apple varieties"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Myclobutanil",
+        "dosage_per_hectare": 0.8,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-14 days during spring",
+        "precautions": "Begin applications at green tip. Continue until dry weather.",
+        "video_sources": {
+          "primary": "Search: 'Cedar Apple Rust Disease Management'",
+          "reliable_channels": [
+            "Virginia Tech Extension",
+            "University of Missouri Extension",
+            "Iowa State University Extension"
+          ],
+          "search_terms": ["cedar apple rust life cycle", "apple rust disease control", "juniper cedar rust management"]
+        }
+      },
+      "organic": {
+        "name": "Lime sulfur",
+        "dosage_per_hectare": 5.0,
+        "unit": "L",
+        "usage": "Dilute and spray on foliage",
+        "application_frequency": "Every 10 days",
+        "precautions": "Apply during dormant season. May cause leaf burn if applied during growing season.",
+        "video_sources": {
+          "primary": "Search: 'Organic Apple Rust Control Lime Sulfur'",
+          "reliable_channels": [
+            "Organic Growers Alliance",
+            "ATTRA National Center for Appropriate Technology",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["lime sulfur spray application", "organic apple rust treatment", "dormant season spraying"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.missouri.edu/publications/ipm1016",
+        "https://www.extension.iastate.edu/smallfarms/cedar-apple-rust"
+      ],
+      "step_by_step_guide": [
+        "1. Identify nearby cedar/juniper trees (alternate host)",
+        "2. Begin monitoring apple trees at bud break",
+        "3. Apply first fungicide at green tip stage",
+        "4. Continue applications through bloom period",
+        "5. Focus treatments during wet spring weather",
+        "6. Consider removing alternate hosts within 2 miles if possible"
+      ]
+    }
+  },
+
+  "Apple_healthy": {
+    "name": "Healthy Apple",
+    "description": "Your apple trees appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular maintenance",
+      "Monitor for early signs of disease",
+      "Follow good orchard sanitation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Preventative fungicide spray",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Monthly as preventative measure",
+        "precautions": "Apply during dormant season and early spring.",
+        "video_sources": {
+          "primary": "Search: 'Apple Orchard Preventative Disease Management'",
+          "reliable_channels": [
+            "Cornell University Cooperative Extension",
+            "University of California Agriculture",
+            "Michigan State University Extension"
+          ],
+          "search_terms": ["apple orchard spray schedule", "preventative fungicide program", "integrated apple disease management"]
+        }
+      },
+      "organic": {
+        "name": "Neem oil + Sulfur",
+        "dosage_per_hectare": 3.0,
+        "unit": "L",
+        "usage": "Dilute and spray as preventative",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply in early morning or evening to prevent leaf burn.",
+        "video_sources": {
+          "primary": "Search: 'Organic Apple Orchard Management'",
+          "reliable_channels": [
+            "Rodale Institute",
+            "Organic Growers Alliance",
+            "ATTRA Sustainable Agriculture"
+          ],
+          "search_terms": ["organic apple spray program", "neem oil application", "sulfur spray technique"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/fruit/growing-apples-home-garden",
+        "https://www.canr.msu.edu/apples/pest_management"
+      ],
+      "step_by_step_guide": [
+        "1. Implement dormant season cleanup and pruning",
+        "2. Monitor weather conditions for disease-favorable periods",
+        "3. Apply preventative treatments at key growth stages",
+        "4. Maintain proper tree spacing for air circulation",
+        "5. Regular inspection for early disease detection",
+        "6. Keep detailed spray records for future reference"
+      ]
+    }
+  },
+
+  "Blueberry_healthy": {
+    "name": "Healthy Blueberry",
+    "description": "Your blueberry plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Maintain proper soil pH (4.5-5.5)",
+      "Ensure adequate drainage",
+      "Monitor for early signs of disease"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Azoxystrobin",
+        "dosage_per_hectare": 0.5,
+        "unit": "L",
+        "usage": "Preventative spray application",
+        "application_frequency": "Every 14-21 days as preventative",
+        "precautions": "Apply before bloom and after harvest. Rotate with other fungicides.",
+        "video_sources": {
+          "primary": "Search: 'Blueberry Disease Prevention Management'",
+          "reliable_channels": [
+            "University of Georgia Extension",
+            "Michigan State University Extension",
+            "North Carolina State Extension"
+          ],
+          "search_terms": ["blueberry disease management", "blueberry fungicide program", "blueberry integrated pest management"]
+        }
+      },
+      "organic": {
+        "name": "Bacillus subtilis",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Dilute and spray preventatively",
+        "application_frequency": "Every 10 days",
+        "precautions": "Apply in early morning when humidity is high.",
+        "video_sources": {
+          "primary": "Search: 'Organic Blueberry Production Methods'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["organic blueberry management", "biological fungicide application", "sustainable berry production"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/fruit/growing-blueberries-minnesota",
+        "https://content.ces.ncsu.edu/blueberry-pest-management"
+      ],
+      "step_by_step_guide": [
+        "1. Test and maintain acidic soil pH between 4.5-5.5",
+        "2. Ensure proper drainage and mulching",
+        "3. Prune during dormant season for air circulation",
+        "4. Monitor for common diseases like mummy berry and anthracnose",
+        "5. Apply preventative treatments before bloom",
+        "6. Maintain consistent irrigation without wetting foliage"
+      ]
+    }
+  },
+
+  "Cherry_Powdery_mildew": {
+    "name": "Cherry Powdery Mildew",
+    "description": "A fungal disease causing white powdery spots on leaves and stems, which can lead to leaf distortion and premature leaf drop.",
+    "treatment": [
+      "Prune to improve air circulation",
+      "Apply fungicides at first sign of infection",
+      "Remove and destroy infected plant parts"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Myclobutanil",
+        "dosage_per_hectare": 0.4,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-14 days",
+        "precautions": "Do not apply within 7 days of harvest. Apply at first sign of disease.",
+        "video_sources": {
+          "primary": "Search: 'Cherry Powdery Mildew Disease Management'",
+          "reliable_channels": [
+            "Washington State University Extension",
+            "Oregon State University Extension",
+            "University of California IPM"
+          ],
+          "search_terms": ["cherry powdery mildew control", "stone fruit disease management", "cherry fungicide timing"]
+        }
+      },
+      "organic": {
+        "name": "Potassium bicarbonate",
+        "dosage_per_hectare": 5.0,
+        "unit": "kg",
+        "usage": "Dissolve in water and spray",
+        "application_frequency": "Every 7 days",
+        "precautions": "Apply during low humidity conditions. May require multiple applications.",
+        "video_sources": {
+          "primary": "Search: 'Organic Cherry Disease Control Methods'",
+          "reliable_channels": [
+            "Organic Growers Alliance",
+            "ATTRA Sustainable Agriculture",
+            "Pacific Northwest Organic Fruit Association"
+          ],
+          "search_terms": ["potassium bicarbonate spray", "organic cherry powdery mildew", "natural fungicide alternatives"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://treefruit.wsu.edu/crop-protection/disease-management/powdery-mildew/",
+        "https://extension.oregonstate.edu/cherry/powdery-mildew"
+      ],
+      "step_by_step_guide": [
+        "1. Monitor trees weekly during warm, dry weather",
+        "2. Look for white powdery growth on young shoots and leaves",
+        "3. Apply first treatment at early symptom appearance",
+        "4. Ensure thorough coverage of upper and lower leaf surfaces",
+        "5. Continue treatments every 7-14 days as needed",
+        "6. Prune infected shoots during dormant season"
+      ]
+    }
+  },
+
+  "Cherry_healthy": {
+    "name": "Healthy Cherry",
+    "description": "Your cherry trees appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular maintenance",
+      "Monitor for early signs of disease",
+      "Follow good orchard sanitation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Copper-based fungicide",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Monthly as preventative measure",
+        "precautions": "Apply during dormant season. May cause fruit russeting if applied near harvest.",
+        "video_sources": {
+          "primary": "Search: 'Cherry Orchard Disease Prevention Program'",
+          "reliable_channels": [
+            "Washington State University Extension",
+            "Michigan State University Extension",
+            "University of California IPM"
+          ],
+          "search_terms": ["cherry disease prevention", "stone fruit spray program", "cherry orchard management"]
+        }
+      },
+      "organic": {
+        "name": "Neem oil",
+        "dosage_per_hectare": 3.0,
+        "unit": "L",
+        "usage": "Dilute and spray as preventative",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply in early morning or evening to prevent leaf burn.",
+        "video_sources": {
+          "primary": "Search: 'Organic Cherry Orchard Management'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Pacific Northwest Organic Fruit Association"
+          ],
+          "search_terms": ["organic cherry production", "neem oil application", "natural orchard management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://treefruit.wsu.edu/varieties/sweet-cherries/",
+        "https://www.canr.msu.edu/cherries/disease_management"
+      ],
+      "step_by_step_guide": [
+        "1. Implement dormant season pruning and cleanup",
+        "2. Apply dormant oil during late winter",
+        "3. Monitor for brown rot during bloom",
+        "4. Maintain proper tree spacing and pruning",
+        "5. Apply preventative treatments as needed",
+        "6. Harvest fruit promptly to reduce disease pressure"
+      ]
+    }
+  },
+
+  "Corn_Cercospora_leaf_spot": {
+    "name": "Corn Cercospora Leaf Spot (Gray Leaf Spot)",
+    "description": "A fungal disease that appears as rectangular lesions that follow leaf veins, typically tan to gray in color.",
+    "treatment": [
+      "Practice crop rotation",
+      "Remove crop debris after harvest",
+      "Plant resistant varieties when available"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Azoxystrobin + Propiconazole",
+        "dosage_per_hectare": 1.2,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 14-21 days",
+        "precautions": "Best applied before disease development. Rotate with different mode of action fungicides to prevent resistance.",
+        "video_sources": {
+          "primary": "Search: 'Corn Gray Leaf Spot Disease Management'",
+          "reliable_channels": [
+            "University of Illinois Extension",
+            "Iowa State University Extension",
+            "Purdue University Extension"
+          ],
+          "search_terms": ["corn gray leaf spot control", "cercospora leaf spot fungicide", "corn disease identification"]
+        }
+      },
+      "organic": {
+        "name": "Copper hydroxide",
+        "dosage_per_hectare": 2.5,
+        "unit": "kg",
+        "usage": "Dilute and spray on foliage",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Apply early in disease development. May require multiple applications in wet conditions.",
+        "video_sources": {
+          "primary": "Search: 'Organic Corn Disease Management Methods'",
+          "reliable_channels": [
+            "ATTRA Sustainable Agriculture",
+            "Rodale Institute",
+            "Sustainable Agriculture Research and Education"
+          ],
+          "search_terms": ["organic corn production", "copper fungicide corn", "sustainable field crop management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://crops.extension.iastate.edu/encyclopedia/gray-leaf-spot-corn",
+        "https://extension.illinois.edu/corn-diseases/gray-leaf-spot"
+      ],
+      "step_by_step_guide": [
+        "1. Scout fields regularly starting at tasseling stage",
+        "2. Look for rectangular lesions parallel to leaf veins",
+        "3. Apply fungicide when disease first appears on lower leaves",
+        "4. Focus treatments during periods of high humidity",
+        "5. Use crop rotation with non-host crops",
+        "6. Select resistant hybrids for future plantings"
+      ]
+    }
+  },
+
+  "Corn(maize)_Common_rust": {
+    "name": "Corn Common Rust",
+    "description": "A fungal disease characterized by small, circular to elongate pustules that are brick-red to brown in color.",
+    "treatment": [
+      "Plant resistant varieties",
+      "Apply fungicides at first signs of infection",
+      "Monitor fields regularly during humid conditions"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Tebuconazole",
+        "dosage_per_hectare": 1.0,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 14 days",
+        "precautions": "Do not apply within 21 days of harvest. Apply at first sign of disease.",
+        "video_sources": {
+          "primary": "Search: 'Corn Common Rust Disease Control'",
+          "reliable_channels": [
+            "University of Nebraska Extension",
+            "Kansas State University Extension",
+            "Ohio State University Extension"
+          ],
+          "search_terms": ["corn common rust fungicide", "corn rust disease cycle", "corn foliar disease management"]
+        }
+      },
+      "organic": {
+        "name": "Sulfur dust",
+        "dosage_per_hectare": 5.0,
+        "unit": "kg",
+        "usage": "Dust application on foliage",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Do not apply when temperatures exceed 85°F. Apply in early morning.",
+        "video_sources": {
+          "primary": "Search: 'Organic Corn Rust Control Sulfur'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Sustainable Agriculture Research and Education"
+          ],
+          "search_terms": ["sulfur dust application", "organic corn rust treatment", "natural fungicide corn"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.entm.purdue.edu/fieldcropsipm/insects/corn-common-rust.php",
+        "https://crops.extension.iastate.edu/encyclopedia/common-rust-corn"
+      ],
+      "step_by_step_guide": [
+        "1. Begin scouting at whorl stage through grain fill",
+        "2. Look for rust pustules on upper and lower leaf surfaces",
+        "3. Apply fungicide when 50% of plants show symptoms",
+        "4. Time applications during cool, humid weather",
+        "5. Monitor for southern rust which is more aggressive",
+        "6. Consider hybrid resistance ratings for future seasons"
+      ]
+    }
+  },
+
+  "Corn_Northern_Leaf_Blight": {
+    "name": "Corn Northern Leaf Blight",
+    "description": "A fungal disease causing long, elliptical, grayish-green to tan lesions on corn leaves.",
+    "treatment": [
+      "Practice crop rotation",
+      "Plant resistant hybrids",
+      "Tillage to reduce overwintering inoculum"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Pyraclostrobin + Metconazole",
+        "dosage_per_hectare": 1.0,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply before disease development. Do not apply within 30 days of harvest.",
+        "video_sources": {
+          "primary": "Search: 'Corn Northern Leaf Blight Management'",
+          "reliable_channels": [
+            "University of Wisconsin Extension",
+            "University of Minnesota Extension",
+            "North Dakota State University Extension"
+          ],
+          "search_terms": ["northern corn leaf blight control", "corn disease fungicide timing", "corn foliar disease identification"]
+        }
+      },
+      "organic": {
+        "name": "Bacillus subtilis",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Dilute and spray preventatively",
+        "application_frequency": "Every 7 days",
+        "precautions": "Most effective when applied preventatively. Multiple applications required.",
+        "video_sources": {
+          "primary": "Search: 'Biological Corn Disease Control Methods'",
+          "reliable_channels": [
+            "Organic Growers Alliance",
+            "ATTRA Sustainable Agriculture",
+            "Sustainable Agriculture Research and Education"
+          ],
+          "search_terms": ["biological fungicide corn", "bacillus subtilis application", "organic corn disease management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/corn-pest-management/northern-corn-leaf-blight",
+        "https://www.ndsu.edu/agriculture/extension/publications/northern-corn-leaf-blight"
+      ],
+      "step_by_step_guide": [
+        "1. Scout fields from V6 growth stage onward",
+        "2. Look for elliptical lesions starting on lower leaves",
+        "3. Apply fungicide when disease reaches lower ear leaf",
+        "4. Time applications before tasseling for best results",
+        "5. Use crop rotation with non-host crops like soybeans",
+        "6. Select hybrids with resistance ratings for your area"
+      ]
+    }
+  },
+
+  "Corn_healthy": {
+    "name": "Healthy Corn",
+    "description": "Your corn plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Maintain proper soil fertility",
+      "Monitor for early signs of disease",
+      "Follow good agricultural practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Preventative fungicide mix",
+        "dosage_per_hectare": 0.8,
+        "unit": "L",
+        "usage": "Preventative spray application",
+        "application_frequency": "Every 21-28 days during growing season",
+        "precautions": "Rotate between different classes of fungicides to prevent resistance.",
+        "video_sources": {
+          "primary": "Search: 'Corn Disease Prevention Program'",
+          "reliable_channels": [
+            "University of Illinois Extension",
+            "Iowa State University Extension",
+            "Purdue University Extension"
+          ],
+          "search_terms": ["corn preventative disease management", "corn fungicide resistance management", "integrated corn disease control"]
+        }
+      },
+      "organic": {
+        "name": "Compost tea",
+        "dosage_per_hectare": 100.0,
+        "unit": "L",
+        "usage": "Dilute and spray as soil drench/foliar",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply in early morning or evening. Use within 24 hours of brewing.",
+        "video_sources": {
+          "primary": "Search: 'Organic Corn Production Methods'",
+          "reliable_channels": [
+            "Rodale Institute",
+            "ATTRA Sustainable Agriculture",
+            "Organic Trade Association"
+          ],
+          "search_terms": ["compost tea application", "organic corn fertility", "sustainable corn production"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.illinois.edu/corn/",
+        "https://crops.extension.iastate.edu/corn"
+      ],
+      "step_by_step_guide": [
+        "1. Implement balanced fertility program",
+        "2. Practice crop rotation with legumes",
+        "3. Monitor for diseases throughout growing season",
+        "4. Maintain adequate plant populations",
+        "5. Control weeds to reduce disease pressure",
+        "6. Select appropriate hybrids for local conditions"
+      ]
+    }
+  },
+
+  "Grape_Esca_Black_Measles": {
+    "name": "Grape Esca (Black Measles)",
+    "description": "A complex fungal disease causing leaf spots, wood decay, and berry symptoms including dark spots and shriveling.",
+    "treatment": [
+      "Remove and destroy infected wood during pruning",
+      "Apply wound protectants after pruning",
+      "Improve vineyard drainage and air circulation"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Sodium arsenite (restricted use)",
+        "dosage_per_hectare": 1.5,
+        "unit": "kg",
+        "usage": "Professional application only",
+        "application_frequency": "Once per season",
+        "precautions": "Highly restricted pesticide. Professional application required. Extreme toxicity.",
+        "video_sources": {
+          "primary": "Search: 'Grape Esca Disease Management Professional Treatment'",
+          "reliable_channels": [
+            "University of California Davis Viticulture",
+            "Cornell University Grape Program",
+            "Washington State University Viticulture"
+          ],
+          "search_terms": ["grape esca trunk disease", "grapevine wood disease", "vineyard trunk disease management"]
+        }
+      },
+      "organic": {
+        "name": "Trichoderma harzianum",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Apply to pruning wounds",
+        "application_frequency": "After each pruning",
+        "precautions": "Apply immediately after making cuts. Store in cool, dry conditions.",
+        "video_sources": {
+          "primary": "Search: 'Organic Grape Trunk Disease Prevention'",
+          "reliable_channels": [
+            "Organic Growers Alliance",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["trichoderma wound protection", "organic grape esca control", "biological vine protection"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://grapes.extension.org/grapevine-trunk-diseases/",
+        "https://www.ars.usda.gov/pacific-west-area/davis-ca/crops-pathology-and-genetics-research/docs/grapevine-trunk-diseases/"
+      ],
+      "step_by_step_guide": [
+        "1. Inspect vines during dormant season for cankers and dead wood",
+        "2. Prune out infected wood 6 inches below visible damage",
+        "3. Apply wound protectant immediately after cuts",
+        "4. Disinfect pruning tools between vines",
+        "5. Remove and destroy all infected wood",
+        "6. Monitor for foliar symptoms during growing season"
+      ]
+    }
+  },
+
+  "Grape_Leaf_blight_Isariopsis_Leaf_Spot": {
+    "name": "Grape Leaf Blight (Isariopsis Leaf Spot)",
+    "description": "A fungal disease causing dark brown to black angular spots on leaves, often with yellow halos.",
+    "treatment": [
+      "Remove infected leaves and debris",
+      "Improve air circulation through canopy management",
+      "Apply protective fungicides during wet periods"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Azoxystrobin + Difenoconazole",
+        "dosage_per_hectare": 1.5,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 14 days",
+        "precautions": "Begin applications at first sign of disease. Do not apply within 21 days of harvest.",
+        "video_sources": {
+          "primary": "Search: 'Grape Leaf Spot Disease Management'",
+          "reliable_channels": [
+            "University of California Davis",
+            "Cornell University Grape Program",
+            "Penn State Extension"
+          ],
+          "search_terms": ["grape leaf spot control", "isariopsis leaf spot", "grape foliar disease management"]
+        }
+      },
+      "organic": {
+        "name": "Potassium bicarbonate + Horticultural oil",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Mix and spray on foliage",
+        "application_frequency": "Every 10 days",
+        "precautions": "Apply in early morning or evening. Test on small area first.",
+        "video_sources": {
+          "primary": "Search: 'Organic Grape Leaf Disease Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["potassium bicarbonate grapes", "organic grape leaf spot", "natural vineyard management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.psu.edu/grape-diseases",
+        "https://grapes.extension.org/grape-disease-identification-and-management/"
+      ],
+      "step_by_step_guide": [
+        "1. Scout vineyard weekly during humid conditions",
+        "2. Look for angular dark spots on older leaves first",
+        "3. Remove affected leaves and improve air circulation",
+        "4. Apply fungicide at first sign of symptoms",
+        "5. Continue treatments through harvest",
+        "6. Clean up leaf debris in fall"
+      ]
+    }
+  },
+
+  "Grape_healthy": {
+    "name": "Healthy Grape",
+    "description": "Your grape vines appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular vineyard maintenance",
+      "Monitor for early signs of disease",
+      "Follow good canopy management practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Copper sulfate + Lime",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Monthly during growing season",
+        "precautions": "Apply during dormant season and early growth. Avoid application near harvest.",
+        "video_sources": {
+          "primary": "Search: 'Grape Disease Prevention Program'",
+          "reliable_channels": [
+            "University of California Davis",
+            "Cornell University Grape Program",
+            "Washington State University Extension"
+          ],
+          "search_terms": ["grape disease prevention", "vineyard spray program", "integrated grape disease management"]
+        }
+      },
+      "organic": {
+        "name": "Sulfur + Mineral oil",
+        "dosage_per_hectare": 4.0,
+        "unit": "kg",
+        "usage": "Dilute and spray preventatively",
+        "application_frequency": "Every 14 days",
+        "precautions": "Do not apply when temperatures exceed 85°F. Apply in early morning.",
+        "video_sources": {
+          "primary": "Search: 'Organic Vineyard Management'",
+          "reliable_channels": [
+            "Organic Growers Alliance",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["organic grape production", "sulfur spray grapes", "natural vineyard disease prevention"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://grapes.extension.org/grape-production/",
+        "https://www.extension.iastate.edu/wine/grape-disease-management"
+      ],
+      "step_by_step_guide": [
+        "1. Implement proper pruning and canopy management",
+        "2. Maintain good vineyard sanitation",
+        "3. Monitor weather conditions for disease pressure",
+        "4. Apply preventative treatments at key growth stages",
+        "5. Regular scouting for early disease detection",
+        "6. Harvest at proper maturity to reduce disease risk"
+      ]
+    }
+  },
+
+  "Orange_Haunglongbing_Citrus_greening": {
+    "name": "Orange Huanglongbing (Citrus Greening)",
+    "description": "A bacterial disease transmitted by Asian citrus psyllid, causing yellow shoots, asymmetrical mottling, and bitter, misshapen fruit.",
+    "treatment": [
+      "Control Asian citrus psyllid vector",
+      "Remove infected trees immediately",
+      "Use certified disease-free nursery stock"
+    ],
+    "severity": "Extreme",
+    "pesticide": {
+      "chemical": {
+        "name": "Imidacloprid + Foliar nutritionals",
+        "dosage_per_hectare": 1.0,
+        "unit": "kg",
+        "usage": "Soil drench and foliar spray",
+        "application_frequency": "Every 60 days",
+        "precautions": "Focus on psyllid control. Tree removal is often necessary.",
+        "video_sources": {
+          "primary": "Search: 'Citrus Greening HLB Management'",
+          "reliable_channels": [
+            "University of Florida IFAS",
+            "University of California Riverside",
+            "Texas A&M AgriLife Extension"
+          ],
+          "search_terms": ["citrus greening disease", "HLB management", "asian citrus psyllid control"]
+        }
+      },
+      "organic": {
+        "name": "Kaolin clay + Neem oil",
+        "dosage_per_hectare": 5.0,
+        "unit": "kg",
+        "usage": "Foliar spray application",
+        "application_frequency": "Every 14 days",
+        "precautions": "Focus on vector control. Organic methods have limited effectiveness.",
+        "video_sources": {
+          "primary": "Search: 'Organic Citrus Psyllid Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "California Certified Organic Farmers"
+          ],
+          "search_terms": ["organic citrus pest control", "kaolin clay psyllid", "natural citrus management"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://crec.ifas.ufl.edu/extension/greening/",
+        "https://www.aphis.usda.gov/aphis/ourfocus/planthealth/plant-pest-and-disease-programs/pests-and-diseases/citrus/citrus-greening"
+      ],
+      "step_by_Step_guide": [
+        "1. Regular inspection for psyllid adults and nymphs",
+        "2. Monitor for early symptoms: yellow shoots, leaf mottling",
+        "3. Implement intensive psyllid control program",
+        "4. Apply foliar nutritionals to support tree health",
+        "5. Remove confirmed infected trees immediately",
+        "6. Replant only with certified disease-free stock"
+      ]
+    }
+  },
+
+  "Peach_Bacterial_spot": {
+    "name": "Peach Bacterial Spot",
+    "description": "A bacterial disease causing small dark spots on leaves, water-soaked lesions on fruit, and twig cankers.",
+    "treatment": [
+      "Apply copper-based bactericides",
+      "Prune for better air circulation",
+      "Avoid overhead irrigation"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Copper sulfate + Oxytetracycline",
+        "dosage_per_hectare": 2.5,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Begin applications at petal fall. Do not apply copper within 30 days of harvest.",
+        "video_sources": {
+          "primary": "Search: 'Peach Bacterial Spot Disease Management'",
+          "reliable_channels": [
+            "University of Georgia Extension",
+            "Clemson University Extension",
+            "North Carolina State Extension"
+          ],
+          "search_terms": ["peach bacterial spot control", "stone fruit bacterial disease", "peach disease management"]
+        }
+      },
+      "organic": {
+        "name": "Copper hydroxide + Bacillus subtilis",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Alternate copper and biological treatments",
+        "application_frequency": "Every 7 days",
+        "precautions": "Reduce copper use by alternating with biological products. Apply during dry weather.",
+        "video_sources": {
+          "primary": "Search: 'Organic Peach Bacterial Disease Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Southern SARE"
+          ],
+          "search_terms": ["organic peach production", "biological bactericide", "copper alternatives peach"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.uga.edu/publications/detail.html?number=C926",
+        "https://content.ces.ncsu.edu/bacterial-spot-of-peach"
+      ],
+      "step_by_step_guide": [
+        "1. Begin scouting after petal fall for leaf spots",
+        "2. Look for small, dark angular spots with yellow halos",
+        "3. Apply first treatment at petal fall",
+        "4. Continue weekly applications during wet weather",
+        "5. Focus on young, susceptible tissue",
+        "6. Prune infected twigs during dormant season"
+      ]
+    }
+  },
+
+  "Peach_healthy": {
+    "name": "Healthy Peach",
+    "description": "Your peach trees appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular orchard maintenance",
+      "Monitor for early signs of disease",
+      "Follow proper pruning and sanitation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Copper-based fungicide",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Monthly during dormant season",
+        "precautions": "Apply during dormant season to prevent bacterial and fungal diseases.",
+        "video_sources": {
+          "primary": "Search: 'Peach Orchard Disease Prevention'",
+          "reliable_channels": [
+            "University of Georgia Extension",
+            "Clemson University Extension",
+            "University of California IPM"
+          ],
+          "search_terms": ["peach disease prevention", "stone fruit spray program", "peach orchard management"]
+        }
+      },
+      "organic": {
+        "name": "Horticultural oil + Compost tea",
+        "dosage_per_hectare": 10.0,
+        "unit": "L",
+        "usage": "Dormant oil application + growing season tea",
+        "application_frequency": "Oil: once dormant, Tea: bi-weekly",
+        "precautions": "Apply oil during dormant season only. Brew compost tea fresh.",
+        "video_sources": {
+          "primary": "Search: 'Organic Peach Orchard Management'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Rodale Institute"
+          ],
+          "search_terms": ["organic peach production", "horticultural oil application", "compost tea benefits"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.uga.edu/publications/detail.html?number=C648",
+        "https://www.canr.msu.edu/uploads/resources/pdfs/growing_peaches_(e2590).pdf"
+      ],
+      "step_by_step_guide": [
+        "1. Apply dormant season treatments for disease prevention",
+        "2. Prune for good air circulation and light penetration",
+        "3. Monitor for brown rot during bloom and near harvest",
+        "4. Thin fruit to reduce disease pressure",
+        "5. Maintain proper tree nutrition",
+        "6. Remove mummified fruit and fallen leaves"
+      ]
+    }
+  },
+
+  "Pepper_bell_Bacterial_spot": {
+    "name": "Pepper Bell Bacterial Spot",
+    "description": "A bacterial disease causing small, dark spots on leaves and fruit, leading to defoliation and unmarketable peppers.",
+    "treatment": [
+      "Use disease-free seeds and transplants",
+      "Apply copper-based bactericides",
+      "Avoid overhead irrigation and work in wet fields"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Copper sulfate + Mancozeb",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Begin applications at transplanting. Rotate with other bactericides to prevent resistance.",
+        "video_sources": {
+          "primary": "Search: 'Pepper Bacterial Spot Disease Management'",
+          "reliable_channels": [
+            "University of Florida IFAS",
+            "North Carolina State Extension",
+            "Cornell University Vegetables"
+          ],
+          "search_terms": ["pepper bacterial spot control", "bell pepper disease management", "vegetable bacterial diseases"]
+        }
+      },
+      "organic": {
+        "name": "Copper octanoate + Plant essential oils",
+        "dosage_per_hectare": 2.5,
+        "unit": "L",
+        "usage": "Foliar spray application",
+        "application_frequency": "Every 5-7 days",
+        "precautions": "Apply during cooler parts of day. May require more frequent applications.",
+        "video_sources": {
+          "primary": "Search: 'Organic Pepper Disease Control Methods'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Johnny's Seeds Education"
+          ],
+          "search_terms": ["organic pepper production", "copper alternatives vegetables", "essential oil bactericides"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://edis.ifas.ufl.edu/publication/PP143",
+        "https://content.ces.ncsu.edu/bacterial-spot-of-pepper"
+      ],
+      "step_by_step_guide": [
+        "1. Start with certified disease-free transplants",
+        "2. Begin preventative treatments at transplanting",
+        "3. Scout weekly for small, dark leaf spots",
+        "4. Apply treatments before and after rain events",
+        "5. Remove severely infected plants",
+        "6. Rotate to non-host crops for 2-3 years"
+      ]
+    }
+  },
+
+  "Pepper_bell_healthy": {
+    "name": "Pepper Bell Healthy",
+    "description": "Your bell pepper plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Maintain consistent watering",
+      "Monitor for early signs of disease",
+      "Follow good garden sanitation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Preventative copper spray",
+        "dosage_per_hectare": 1.5,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply preventatively during humid conditions. Avoid during fruit development.",
+        "video_sources": {
+          "primary": "Search: 'Pepper Disease Prevention Program'",
+          "reliable_channels": [
+            "University of Florida IFAS",
+            "Cornell University Vegetables",
+            "Johnny's Seeds Education"
+          ],
+          "search_terms": ["pepper disease prevention", "bell pepper growing guide", "vegetable crop protection"]
+        }
+      },
+      "organic": {
+        "name": "Bacillus amyloliquefaciens",
+        "dosage_per_hectare": 1.0,
+        "unit": "kg",
+        "usage": "Soil drench and foliar spray",
+        "application_frequency": "Every 10 days",
+        "precautions": "Apply during cooler parts of day. Store in refrigerator.",
+        "video_sources": {
+          "primary": "Search: 'Organic Pepper Production Methods'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Rodale Institute"
+          ],
+          "search_terms": ["organic pepper growing", "biological fungicides vegetables", "sustainable pepper production"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://edis.ifas.ufl.edu/publication/MV088",
+        "https://extension.umn.edu/vegetables/growing-peppers"
+      ],
+      "step_by_step_guide": [
+        "1. Provide consistent moisture without waterlogging",
+        "2. Mulch around plants to reduce soil splash",
+        "3. Space plants adequately for air circulation",
+        "4. Monitor for pests and diseases weekly",
+        "5. Apply preventative treatments during humid weather",
+        "6. Harvest regularly to maintain plant health"
+      ]
+    }
+  },
+
+  "Potato_Early_blight": {
+    "name": "Potato Early Blight",
+    "description": "A fungal disease causing dark, concentric ring spots on leaves and tubers, leading to premature defoliation.",
+    "treatment": [
+      "Apply fungicides at first sign of disease",
+      "Practice crop rotation",
+      "Remove and destroy infected plant debris"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Chlorothalonil + Azoxystrobin",
+        "dosage_per_hectare": 2.5,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-14 days",
+        "precautions": "Begin applications when disease first appears. Do not apply within 7 days of harvest.",
+        "video_sources": {
+          "primary": "Search: 'Potato Early Blight Disease Management'",
+          "reliable_channels": [
+            "University of Wisconsin Extension",
+            "Michigan State University Extension",
+            "Cornell University Vegetables"
+          ],
+          "search_terms": ["potato early blight control", "potato fungicide program", "potato disease identification"]
+        }
+      },
+      "organic": {
+        "name": "Copper hydroxide + Bacillus subtilis",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Alternate applications",
+        "application_frequency": "Every 7 days",
+        "precautions": "Apply copper during dry weather. Use biological product during humid conditions.",
+        "video_sources": {
+          "primary": "Search: 'Organic Potato Disease Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Rodale Institute"
+          ],
+          "search_terms": ["organic potato production", "copper fungicide potatoes", "biological potato disease control"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/diseases/early-blight-potato-and-tomato",
+        "https://www.canr.msu.edu/potatoes/disease_management"
+      ],
+      "step_by_step_guide": [
+        "1. Scout fields weekly starting mid-season",
+        "2. Look for dark spots with concentric rings on lower leaves",
+        "3. Apply fungicide at first symptom appearance",
+        "4. Continue applications based on weather conditions",
+        "5. Focus on protecting new growth and tubers",
+        "6. Practice 3-4 year crop rotation"
+      ]
+    }
+  },
+
+  "Potato_Late_blight": {
+    "name": "Potato Late Blight",
+    "description": "A devastating fungal-like disease causing water-soaked lesions on leaves, stems, and tubers, capable of destroying entire crops quickly.",
+    "treatment": [
+      "Apply protective fungicides preventatively",
+      "Remove infected plants immediately",
+      "Improve air circulation and drainage"
+    ],
+    "severity": "Extreme",
+    "pesticide": {
+      "chemical": {
+        "name": "Metalaxyl + Mancozeb",
+        "dosage_per_hectare": 3.0,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 5-7 days",
+        "precautions": "Apply preventatively. Most effective when applied before infection occurs.",
+        "video_sources": {
+          "primary": "Search: 'Potato Late Blight Emergency Management'",
+          "reliable_channels": [
+            "Cornell University Vegetables",
+            "University of Wisconsin Extension",
+            "Maine Potato Board"
+          ],
+          "search_terms": ["potato late blight control", "phytophthora infestans", "potato disease emergency"]
+        }
+      },
+      "organic": {
+        "name": "Copper sulfate + Potassium phosphonate",
+        "dosage_per_hectare": 4.0,
+        "unit": "kg",
+        "usage": "Intensive spray program",
+        "application_frequency": "Every 3-5 days",
+        "precautions": "Requires intensive application schedule. Limited effectiveness compared to conventional.",
+        "video_sources": {
+          "primary": "Search: 'Organic Late Blight Management Potatoes'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "Northeast Organic Farming Association",
+            "ATTRA Sustainable Agriculture"
+          ],
+          "search_terms": ["organic late blight control", "copper intensive program", "phosphonate potato"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://plantpath.cornell.edu/late-blight/",
+        "https://extension.umn.edu/diseases/late-blight"
+      ],
+      "step_by_step_guide": [
+        "1. Monitor weather conditions for late blight favorable periods",
+        "2. Begin preventative applications before disease arrival",
+        "3. Scout fields daily during high-risk periods",
+        "4. Remove infected plants immediately and completely",
+        "5. Apply fungicides on intensive schedule",
+        "6. Destroy crop residue and volunteer potatoes"
+      ]
+    }
+  },
+
+  "Potato_healthy": {
+    "name": "Healthy Potato",
+    "description": "Your potato plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Maintain proper soil moisture",
+      "Monitor for early signs of disease",
+      "Follow good crop rotation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Preventative fungicide rotation",
+        "dosage_per_hectare": 2.0,
+        "unit": "L",
+        "usage": "Preventative spray application",
+        "application_frequency": "Every 14-21 days",
+        "precautions": "Rotate between different fungicide classes. Begin mid-season applications.",
+        "video_sources": {
+          "primary": "Search: 'Potato Disease Prevention Program'",
+          "reliable_channels": [
+            "University of Wisconsin Extension",
+            "Michigan State University Extension",
+            "Cornell University Vegetables"
+          ],
+          "search_terms": ["potato disease prevention", "potato spray schedule", "integrated potato management"]
+        }
+      },
+      "organic": {
+        "name": "Compost tea + Beneficial microorganisms",
+        "dosage_per_hectare": 100.0,
+        "unit": "L",
+        "usage": "Soil application and foliar spray",
+        "application_frequency": "Bi-weekly applications",
+        "precautions": "Use fresh compost tea within 24 hours. Apply during cooler parts of day.",
+        "video_sources": {
+          "primary": "Search: 'Organic Potato Production Methods'",
+          "reliable_channels": [
+            "Rodale Institute",
+            "ATTRA Sustainable Agriculture",
+            "Organic Trade Association"
+          ],
+          "search_terms": ["organic potato growing", "compost tea potatoes", "sustainable potato production"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/vegetables/growing-potatoes",
+        "https://www.canr.msu.edu/potatoes/"
+      ],
+      "step_by_step_guide": [
+        "1. Plant certified disease-free seed potatoes",
+        "2. Maintain consistent soil moisture",
+        "3. Hill soil around stems as plants grow",
+        "4. Monitor for Colorado potato beetle and diseases",
+        "5. Apply preventative treatments during high-risk periods",
+        "6. Harvest at proper maturity and cure properly"
+      ]
+    }
+  },
+
+  "Raspberry_healthy": {
+    "name": "Healthy Raspberry",
+    "description": "Your raspberry plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular cane management",
+      "Monitor for early signs of disease",
+      "Maintain proper spacing for air circulation"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Lime sulfur",
+        "dosage_per_hectare": 10.0,
+        "unit": "L",
+        "usage": "Dormant season application",
+        "application_frequency": "Once during dormant season",
+        "precautions": "Apply only during dormant season. Do not apply to actively growing plants.",
+        "video_sources": {
+          "primary": "Search: 'Raspberry Disease Prevention Management'",
+          "reliable_channels": [
+            "Cornell University Small Fruits",
+            "University of California Small Fruits",
+            "Washington State University Extension"
+          ],
+          "search_terms": ["raspberry disease prevention", "small fruit management", "raspberry spray program"]
+        }
+      },
+      "organic": {
+        "name": "Horticultural oil + Sulfur",
+        "dosage_per_hectare": 8.0,
+        "unit": "L",
+        "usage": "Dormant and growing season applications",
+        "application_frequency": "Dormant: once, Growing: monthly",
+        "precautions": "Apply oil during dormant season only. Use sulfur during growing season.",
+        "video_sources": {
+          "primary": "Search: 'Organic Raspberry Production'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["organic raspberry growing", "horticultural oil berries", "sulfur spray raspberries"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://smallfarms.cornell.edu/projects/raspberries/",
+        "https://extension.umn.edu/fruit/growing-raspberries-minnesota"
+      ],
+      "step_by_step_guide": [
+        "1. Prune out old canes after harvest",
+        "2. Thin new canes for proper spacing",
+        "3. Apply dormant season treatments",
+        "4. Monitor for anthracnose and cane blight",
+        "5. Maintain good air circulation between rows",
+        "6. Remove any weak or diseased canes promptly"
+      ]
+    }
+  },
+
+  "Soybean_healthy": {
+    "name": "Healthy Soybean",
+    "description": "Your soybean plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Maintain proper plant population",
+      "Monitor for early signs of disease",
+      "Follow good crop rotation practices"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Azoxystrobin + Propiconazole",
+        "dosage_per_hectare": 1.0,
+        "unit": "L",
+        "usage": "Preventative foliar application",
+        "application_frequency": "At R3-R5 growth stages",
+        "precautions": "Apply during reproductive stages for maximum benefit. Monitor for resistance.",
+        "video_sources": {
+          "primary": "Search: 'Soybean Disease Prevention Program'",
+          "reliable_channels": [
+            "Iowa State University Extension",
+            "University of Illinois Extension",
+            "Purdue University Extension"
+          ],
+          "search_terms": ["soybean disease prevention", "soybean fungicide timing", "soybean integrated management"]
+        }
+      },
+      "organic": {
+        "name": "Bacillus subtilis + Foliar nutrients",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Foliar spray application",
+        "application_frequency": "Every 14 days during reproductive stage",
+        "precautions": "Apply during cooler parts of day. Combine with micronutrients.",
+        "video_sources": {
+          "primary": "Search: 'Organic Soybean Production Methods'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Rodale Institute"
+          ],
+          "search_terms": ["organic soybean growing", "biological soybean treatments", "sustainable soybean production"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://crops.extension.iastate.edu/soybean",
+        "https://extension.illinois.edu/soybeans/"
+      ],
+      "step_by_step_guide": [
+        "1. Plant high-quality, treated seed",
+        "2. Maintain proper plant populations",
+        "3. Scout fields regularly for diseases and pests",
+        "4. Apply preventative treatments during reproductive stages",
+        "5. Monitor for sudden death syndrome and white mold",
+        "6. Harvest at proper moisture content"
+      ]
+    }
+  },
+
+  "Squash_Powdery_mildew": {
+    "name": "Squash Powdery Mildew",
+    "description": "A fungal disease causing white, powdery growth on leaves and stems, leading to yellowing and premature leaf drop.",
+    "treatment": [
+      "Apply fungicides at first sign of infection",
+      "Improve air circulation around plants",
+      "Remove severely infected leaves"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Myclobutanil + Sulfur",
+        "dosage_per_hectare": 1.5,
+        "unit": "kg",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-14 days",
+        "precautions": "Begin applications at first sign of disease. Do not apply sulfur when temperatures exceed 85°F.",
+        "video_sources": {
+          "primary": "Search: 'Squash Powdery Mildew Disease Management'",
+          "reliable_channels": [
+            "Cornell University Vegetables",
+            "University of California IPM",
+            "Johnny's Seeds Education"
+          ],
+          "search_terms": ["squash powdery mildew control", "cucurbit disease management", "powdery mildew fungicides"]
+        }
+      },
+      "organic": {
+        "name": "Potassium bicarbonate + Horticultural oil",
+        "dosage_per_hectare": 4.0,
+        "unit": "kg",
+        "usage": "Mix and spray on foliage",
+        "application_frequency": "Every 7 days",
+        "precautions": "Apply during cooler parts of day. Test on small area first.",
+        "video_sources": {
+          "primary": "Search: 'Organic Squash Disease Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Johnny's Seeds Organic"
+          ],
+          "search_terms": ["organic squash production", "potassium bicarbonate spray", "natural powdery mildew control"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/diseases/powdery-mildew-vegetables",
+        "https://www.extension.iastate.edu/smallfarms/powdery-mildew-cucurbits"
+      ],
+      "step_by_step_guide": [
+        "1. Monitor plants weekly for white powdery spots",
+        "2. Improve air circulation by proper spacing",
+        "3. Apply treatment at first sign of infection",
+        "4. Focus on upper and lower leaf surfaces",
+        "5. Remove severely infected leaves",
+        "6. Continue treatments through harvest"
+      ]
+    }
+  },
+
+  "Strawberry_Leaf_scorch": {
+    "name": "Strawberry Leaf Scorch",
+    "description": "A fungal disease causing purple to brown spots on leaves that eventually turn brown and scorched in appearance.",
+    "treatment": [
+      "Remove infected leaves and debris",
+      "Apply fungicides during renovation",
+      "Improve air circulation between plants"
+    ],
+    "severity": "Moderate",
+    "pesticide": {
+      "chemical": {
+        "name": "Azoxystrobin + Difenoconazole",
+        "dosage_per_hectare": 1.0,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 14 days",
+        "precautions": "Begin applications during renovation after harvest. Do not apply during bloom.",
+        "video_sources": {
+          "primary": "Search: 'Strawberry Leaf Scorch Disease Management'",
+          "reliable_channels": [
+            "Cornell University Small Fruits",
+            "University of California Small Fruits",
+            "North Carolina State Extension"
+          ],
+          "search_terms": ["strawberry leaf scorch control", "strawberry disease management", "small fruit fungicides"]
+        }
+      },
+      "organic": {
+        "name": "Copper octanoate + Bacillus amyloliquefaciens",
+        "dosage_per_hectare": 2.0,
+        "unit": "L",
+        "usage": "Alternate applications",
+        "application_frequency": "Every 10 days",
+        "precautions": "Apply copper during dry weather. Use biological during humid conditions.",
+        "video_sources": {
+          "primary": "Search: 'Organic Strawberry Disease Control'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["organic strawberry production", "copper fungicide berries", "biological strawberry treatments"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://smallfarms.cornell.edu/projects/strawberries/",
+        "https://extension.umn.edu/fruit/strawberry-leaf-diseases"
+      ],
+      "step_by_step_guide": [
+        "1. Scout plants weekly during growing season",
+        "2. Look for purple spots that turn brown and scorched",
+        "3. Remove infected leaves during renovation",
+        "4. Apply fungicides after renovation mowing",
+        "5. Maintain proper plant spacing",
+        "6. Clean up debris in fall"
+      ]
+    }
+  },
+
+  "Strawberry_healthy": {
+    "name": "Healthy Strawberry",
+    "description": "Your strawberry plants appear healthy with no signs of disease or pest infestation.",
+    "treatment": [
+      "Continue regular maintenance",
+      "Monitor for early signs of disease",
+      "Maintain proper plant spacing"
+    ],
+    "severity": "None",
+    "pesticide": {
+      "chemical": {
+        "name": "Captan",
+        "dosage_per_hectare": 2.0,
+        "unit": "kg",
+        "usage": "Preventative spray application",
+        "application_frequency": "Every 14 days during wet periods",
+        "precautions": "Begin applications at bloom. Do not apply within 1 day of harvest.",
+        "video_sources": {
+          "primary": "Search: 'Strawberry Disease Prevention Program'",
+          "reliable_channels": [
+            "Cornell University Small Fruits",
+            "University of California Small Fruits",
+            "North Carolina State Extension"
+          ],
+          "search_terms": ["strawberry disease prevention", "small fruit spray program", "strawberry integrated management"]
+        }
+      },
+      "organic": {
+        "name": "Neem oil + Beneficial microorganisms",
+        "dosage_per_hectare": 5.0,
+        "unit": "L",
+        "usage": "Foliar spray and soil application",
+        "application_frequency": "Every 14 days",
+        "precautions": "Apply neem during cooler parts of day. Apply microorganisms to soil.",
+        "video_sources": {
+          "primary": "Search: 'Organic Strawberry Production'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Northeast Organic Farming Association"
+          ],
+          "search_terms": ["organic strawberry growing", "neem oil berries", "beneficial microorganisms strawberry"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://extension.umn.edu/fruit/growing-strawberries",
+        "https://smallfarms.cornell.edu/projects/strawberries/"
+      ],
+      "step_by_step_guide": [
+        "1. Maintain proper plant spacing for air circulation",
+        "2. Apply preventative treatments during bloom",
+        "3. Remove runners to maintain plant vigor",
+        "4. Monitor for gray mold and leaf spot diseases",
+        "5. Renovate beds after harvest",
+        "6. Apply winter protection as needed"
+      ]
+    }
+  },
+
+ 
+
+  "Tomato_Spider_mites_Two_spotted_spider_mite": {
+    "name": "Tomato Two-Spotted Spider Mite",
+    "description": "Tiny arachnid pests that cause stippling, yellowing, and webbing on leaves, leading to reduced plant vigor and yield.",
+    "treatment": [
+      "Increase humidity around plants",
+      "Apply miticides or beneficial predators",
+      "Remove heavily infested leaves"
+    ],
+    "severity": "High",
+    "pesticide": {
+      "chemical": {
+        "name": "Abamectin + Spiromesifen",
+        "dosage_per_hectare": 1.0,
+        "unit": "L",
+        "usage": "Spray on affected areas",
+        "application_frequency": "Every 7-10 days",
+        "precautions": "Rotate miticide modes of action. Apply when mites first detected.",
+        "video_sources": {
+          "primary": "Search: 'Tomato Spider Mite Control Management'",
+          "reliable_channels": [
+            "University of California IPM",
+            "Cornell University Vegetables",
+            "University of Florida IFAS"
+          ],
+          "search_terms": ["tomato spider mite control", "two spotted spider mite", "miticide resistance management"]
+        }
+      },
+      "organic": {
+        "name": "Predatory mites + Neem oil + Insecticidal soap",
+        "dosage_per_hectare": 5.0,
+        "unit": "L",
+        "usage": "Release predators and spray treatments",
+        "application_frequency": "Predators: once, Sprays: every 5 days",
+        "precautions": "Do not spray neem when predatory mites are present. Increase humidity.",
+        "video_sources": {
+          "primary": "Search: 'Organic Spider Mite Control Tomato'",
+          "reliable_channels": [
+            "Organic Trade Association",
+            "ATTRA Sustainable Agriculture",
+            "Beneficial Insectary Suppliers"
+          ],
+          "search_terms": ["predatory mites tomato", "organic spider mite control", "biological mite control"]
+        }
+      }
+    },
+    "additional_resources": {
+      "extension_guides": [
+        "https://ipm.ucanr.edu/PMG/PESTNOTES/pn7405.html",
+        "https://edis.ifas.ufl.edu/publication/IN1222"
+      ],
+      "step_by_step_guide": [
+        "1. Monitor plants weekly for stippling and webbing",
+        "2. Check undersides of leaves for tiny moving dots",
+        "3. Increase humidity around plants if possible",
+        "4. Release predatory mites for biological control",
+        "5. Apply miticides before heavy infestations develop",
+        "6. Remove heavily infested leaves and debris"
+      ]
+    }
+  },
+
+    "Tomato_Bacterial_spot": {
+        "name": "Bacterial Spot",
+        "description": "A bacterial disease caused by Xanthomonas species that creates small, dark brown to black spots on leaves, stems, and fruit. Spots on leaves may have yellow halos and can cause defoliation.",
+        "treatment": [
+            "Remove infected plant debris",
+            "Use disease-free seeds and transplants",
+            "Apply copper-based bactericides preventively",
+            "Improve air circulation and avoid overhead watering"
+        ],
+        "severity": "High",
+        "pesticide": {
+            "chemical": {
+                "name": "Copper hydroxide + Streptomycin sulfate",
+                "dosage_per_hectare": 2.5,
+                "unit": "L",
+                "usage": "Foliar spray covering all plant surfaces",
+                "application_frequency": "Every 7-10 days",
+                "precautions": "Do not apply during bloom period. Rotate with other bactericides to prevent resistance.",
+                "video_sources": {
+                    "primary": "Search: 'Tomato Bacterial Spot Management'",
+                    "reliable_channels": [
+                        "University of Florida IFAS",
+                        "Cornell Vegetable Program",
+                        "Purdue Extension Vegetables"
+                    ],
+                    "search_terms": ["tomato bacterial spot control", "copper bactericides vegetables", "xanthomonas tomato management"]
+                }
+            },
+            "organic": {
+                "name": "Copper octanoate + Bacillus subtilis",
+                "dosage_per_hectare": 3.0,
+                "unit": "L",
+                "usage": "Alternate weekly applications",
+                "application_frequency": "Every 7 days",
+                "precautions": "Apply copper during dry conditions. Use biological treatments during humid weather.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Tomato Bacterial Disease Control'",
+                    "reliable_channels": [
+                        "ATTRA Sustainable Agriculture",
+                        "Rodale Institute",
+                        "Organic Growers Alliance"
+                    ],
+                    "search_terms": ["organic tomato disease management", "biological bactericides", "sustainable tomato production"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://edis.ifas.ufl.edu/publication/pp249",
+                "https://extension.psu.edu/tomato-diseases"
+            ],
+            "step_by_step_guide": [
+                "1. Inspect plants weekly for small dark spots on leaves",
+                "2. Remove infected leaves and destroy debris",
+                "3. Begin preventive sprays before disease appears",
+                "4. Apply bactericides during dry weather",
+                "5. Maintain proper plant spacing for air circulation",
+                "6. Sanitize tools between plants"
+            ]
+        }
+    },
+    
+    "Tomato_Early_blight": {
+        "name": "Early Blight",
+        "description": "A fungal disease caused by Alternaria solani that creates concentric ring spots on older leaves, progressing upward. Causes yellowing, defoliation, and fruit rot with dark, sunken lesions.",
+        "treatment": [
+            "Remove lower infected leaves",
+            "Apply fungicides preventively",
+            "Mulch around plants to prevent soil splash",
+            "Ensure proper spacing and air circulation"
+        ],
+        "severity": "Moderate to High",
+        "pesticide": {
+            "chemical": {
+                "name": "Chlorothalonil + Azoxystrobin",
+                "dosage_per_hectare": 2.0,
+                "unit": "L",
+                "usage": "Foliar application covering entire plant",
+                "application_frequency": "Every 14 days",
+                "precautions": "Begin applications when first symptoms appear. Alternate active ingredients to prevent resistance.",
+                "video_sources": {
+                    "primary": "Search: 'Tomato Early Blight Fungicide Treatment'",
+                    "reliable_channels": [
+                        "Ohio State Extension",
+                        "Michigan State Extension",
+                        "University of Georgia Extension"
+                    ],
+                    "search_terms": ["early blight tomato control", "alternaria tomato fungicides", "tomato foliar diseases"]
+                }
+            },
+            "organic": {
+                "name": "Copper sulfate + Trichoderma harzianum",
+                "dosage_per_hectare": 2.5,
+                "unit": "L",
+                "usage": "Preventive and curative applications",
+                "application_frequency": "Every 10 days",
+                "precautions": "Apply copper in dry conditions. Use biological agents during favorable weather.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Early Blight Management'",
+                    "reliable_channels": [
+                        "Johnny's Seeds Growing Guides",
+                        "High Mowing Seeds",
+                        "Sustainable Agriculture Research"
+                    ],
+                    "search_terms": ["organic tomato fungicides", "trichoderma tomato treatment", "sustainable early blight control"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://extension.umn.edu/diseases/early-blight-tomato",
+                "https://plantpathology.ca.uky.edu/files/ppfs-vg-04.pdf"
+            ],
+            "step_by_step_guide": [
+                "1. Monitor lower leaves for brown spots with concentric rings",
+                "2. Remove affected leaves below first fruit cluster",
+                "3. Apply mulch to prevent soil splash onto leaves",
+                "4. Begin fungicide applications at first sign of disease",
+                "5. Maintain consistent watering schedule",
+                "6. Remove plant debris at end of season"
+            ]
+        }
+    },
+    
+    "Tomato_Late_blight": {
+        "name": "Late Blight",
+        "description": "A devastating disease caused by Phytophthora infestans that creates water-soaked lesions on leaves and stems, with white fuzzy growth on leaf undersides. Can destroy entire crops rapidly.",
+        "treatment": [
+            "Apply fungicides preventively in high-risk conditions",
+            "Ensure excellent drainage and air circulation",
+            "Remove infected plants immediately",
+            "Monitor weather conditions for disease-favorable periods"
+        ],
+        "severity": "Very High",
+        "pesticide": {
+            "chemical": {
+                "name": "Metalaxyl-M + Chlorothalonil",
+                "dosage_per_hectare": 2.5,
+                "unit": "L",
+                "usage": "Preventive foliar applications",
+                "application_frequency": "Every 7-10 days during high-risk periods",
+                "precautions": "Begin applications before disease symptoms appear. Critical during cool, wet weather.",
+                "video_sources": {
+                    "primary": "Search: 'Late Blight Tomato Emergency Treatment'",
+                    "reliable_channels": [
+                        "Cornell Plant Disease Diagnostic Clinic",
+                        "Penn State Plant Disease",
+                        "USDA Plant Health"
+                    ],
+                    "search_terms": ["late blight tomato control", "phytophthora infestans management", "tomato late blight fungicides"]
+                }
+            },
+            "organic": {
+                "name": "Copper hydroxide + Potassium bicarbonate",
+                "dosage_per_hectare": 3.5,
+                "unit": "L",
+                "usage": "Intensive preventive program",
+                "application_frequency": "Every 5-7 days",
+                "precautions": "Organic control is limited. Focus on prevention and environmental management.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Late Blight Prevention'",
+                    "reliable_channels": [
+                        "Organic Seed Alliance",
+                        "Northeast Organic Network",
+                        "Organic Farming Research"
+                    ],
+                    "search_terms": ["organic late blight control", "copper fungicides tomatoes", "late blight prevention organic"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://vegetablemdonline.ppath.cornell.edu/factsheets/Tomato_LateBlt.htm",
+                "https://extension.psu.edu/late-blight-of-potato-and-tomato"
+            ],
+            "step_by_step_guide": [
+                "1. Monitor weather forecasts for late blight-favorable conditions",
+                "2. Begin preventive fungicide program before symptoms appear",
+                "3. Scout plants daily during high-risk periods",
+                "4. Remove infected plants immediately and destroy",
+                "5. Avoid overhead irrigation during humid periods",
+                "6. Report outbreaks to local extension office"
+            ]
+        }
+    },
+    
+    "Tomato_Leaf_Mold": {
+        "name": "Leaf Mold",
+        "description": "A fungal disease caused by Passalora fulva (formerly Fulvia fulva) that creates yellow spots on upper leaf surfaces with olive-green to brown fuzzy growth on undersides. Thrives in humid greenhouse conditions.",
+        "treatment": [
+            "Improve ventilation and reduce humidity",
+            "Remove infected leaves",
+            "Apply fungicides in greenhouse environments",
+            "Use resistant varieties when possible"
+        ],
+        "severity": "Moderate",
+        "pesticide": {
+            "chemical": {
+                "name": "Propiconazole + Cyprodinil",
+                "dosage_per_hectare": 1.5,
+                "unit": "L",
+                "usage": "Targeted application to leaf undersides",
+                "application_frequency": "Every 14 days",
+                "precautions": "Most effective in greenhouse production. Ensure good coverage of leaf undersides.",
+                "video_sources": {
+                    "primary": "Search: 'Tomato Leaf Mold Greenhouse Management'",
+                    "reliable_channels": [
+                        "Greenhouse Grower Magazine",
+                        "Cornell CEA Program",
+                        "University of Arizona CEA"
+                    ],
+                    "search_terms": ["leaf mold tomato greenhouse", "fulvia fulva control", "greenhouse tomato diseases"]
+                }
+            },
+            "organic": {
+                "name": "Bacillus subtilis + Neem oil",
+                "dosage_per_hectare": 2.0,
+                "unit": "L",
+                "usage": "Foliar application with good coverage",
+                "application_frequency": "Every 10 days",
+                "precautions": "Apply during cooler parts of day to avoid leaf burn from neem oil.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Greenhouse Tomato Disease Control'",
+                    "reliable_channels": [
+                        "Organic Greenhouse Alliance",
+                        "Bio-Rational Pest Management",
+                        "Sustainable Greenhouse Systems"
+                    ],
+                    "search_terms": ["organic leaf mold control", "biological fungicides greenhouse", "neem oil tomato diseases"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://extension.umn.edu/diseases/leaf-mold-tomato",
+                "https://www2.ipm.ucanr.edu/agriculture/tomato/Leaf-mold/"
+            ],
+            "step_by_step_guide": [
+                "1. Monitor greenhouse humidity levels (keep below 85%)",
+                "2. Inspect leaf undersides for olive-green fuzzy growth",
+                "3. Increase ventilation and air circulation",
+                "4. Remove infected leaves promptly",
+                "5. Apply fungicides targeting leaf undersides",
+                "6. Space plants adequately for air movement"
+            ]
+        }
+    },
+    
+    "Tomato_Septoria_leaf_spot": {
+        "name": "Septoria Leaf Spot",
+        "description": "A fungal disease caused by Septoria lycopersici that creates small, circular spots with gray centers and dark borders on leaves. Black specks (pycnidia) are visible in spot centers.",
+        "treatment": [
+            "Remove infected lower leaves",
+            "Apply fungicides preventively",
+            "Mulch to prevent soil splash",
+            "Avoid overhead watering"
+        ],
+        "severity": "Moderate",
+        "pesticide": {
+            "chemical": {
+                "name": "Mancozeb + Copper hydroxide",
+                "dosage_per_hectare": 2.2,
+                "unit": "L",
+                "usage": "Preventive foliar applications",
+                "application_frequency": "Every 14 days",
+                "precautions": "Begin applications early in season. Focus on lower leaves where disease starts.",
+                "video_sources": {
+                    "primary": "Search: 'Septoria Leaf Spot Tomato Treatment'",
+                    "reliable_channels": [
+                        "Clemson Extension",
+                        "Virginia Tech Extension",
+                        "North Carolina Extension"
+                    ],
+                    "search_terms": ["septoria tomato control", "tomato leaf spot diseases", "mancozeb tomato application"]
+                }
+            },
+            "organic": {
+                "name": "Copper octanoate + Bacillus amyloliquefaciens",
+                "dosage_per_hectare": 2.8,
+                "unit": "L",
+                "usage": "Preventive and early curative treatments",
+                "application_frequency": "Every 10 days",
+                "precautions": "Rotate copper and biological treatments. Apply during dry weather for best results.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Septoria Leaf Spot Control'",
+                    "reliable_channels": [
+                        "Organic Materials Review Institute",
+                        "Northeast Organic Farming",
+                        "Sustainable Vegetable Production"
+                    ],
+                    "search_terms": ["organic tomato leaf diseases", "copper fungicide vegetables", "biological septoria control"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://extension.psu.edu/septoria-leaf-spot-of-tomato",
+                "https://plantpathology.ca.uky.edu/files/ppfs-vg-07.pdf"
+            ],
+            "step_by_step_guide": [
+                "1. Scout lower leaves for small circular spots with gray centers",
+                "2. Remove infected leaves and dispose in trash",
+                "3. Apply mulch around plants to prevent soil splash",
+                "4. Begin fungicide program when first spots appear",
+                "5. Water at soil level to keep foliage dry",
+                "6. Maintain good air circulation around plants"
+            ]
+        }
+    },
+    
+    "Tomato_Spider_mites_Two-spotted_spider_mite": {
+        "name": "Two-spotted Spider Mite",
+        "description": "Tiny arthropod pests that feed on leaf undersides, causing stippling, yellowing, and eventual leaf bronzing. Fine webbing may be visible on heavily infested plants.",
+        "treatment": [
+            "Increase humidity around plants",
+            "Use predatory mites for biological control",
+            "Apply miticides when populations are high",
+            "Remove heavily infested leaves"
+        ],
+        "severity": "Moderate to High",
+        "pesticide": {
+            "chemical": {
+                "name": "Abamectin + Spiromesifen",
+                "dosage_per_hectare": 1.8,
+                "unit": "L",
+                "usage": "Targeted spray to leaf undersides",
+                "application_frequency": "Every 10-14 days",
+                "precautions": "Rotate miticide modes of action. Target early infestations for best control.",
+                "video_sources": {
+                    "primary": "Search: 'Spider Mite Control Tomatoes'",
+                    "reliable_channels": [
+                        "University of California IPM",
+                        "Texas A&M AgriLife",
+                        "Colorado State Extension"
+                    ],
+                    "search_terms": ["two spotted spider mite tomato", "miticide rotation strategy", "spider mite integrated management"]
+                }
+            },
+            "organic": {
+                "name": "Predatory mites + Neem oil",
+                "dosage_per_hectare": 2.5,
+                "unit": "L",
+                "usage": "Release predatory mites, supplement with neem oil",
+                "application_frequency": "Every 7 days for neem oil",
+                "precautions": "Avoid insecticides that harm beneficial mites. Maintain humidity above 50%.",
+                "video_sources": {
+                    "primary": "Search: 'Biological Spider Mite Control'",
+                    "reliable_channels": [
+                        "Beneficial Insectary",
+                        "IPM Institute",
+                        "Organic Pest Solutions"
+                    ],
+                    "search_terms": ["predatory mites tomatoes", "organic spider mite control", "beneficial insects greenhouse"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://ipm.ucanr.edu/PMG/PESTNOTES/pn7405.html",
+                "https://extension.colostate.edu/topic-areas/insects/spider-mites-5-507/"
+            ],
+            "step_by_step_guide": [
+                "1. Monitor leaf undersides with hand lens for tiny moving dots",
+                "2. Look for stippling and yellowing of leaves",
+                "3. Check for fine webbing on severely infested plants",
+                "4. Increase humidity around plants if possible",
+                "5. Apply miticides targeting leaf undersides",
+                "6. Release predatory mites for long-term control"
+            ]
+        }
+    },
+    
+    "Tomato_Target_Spot": {
+        "name": "Target Spot",
+        "description": "A fungal disease caused by Corynespora cassiicola that creates brown spots with concentric rings on leaves, similar to early blight but typically smaller and more numerous.",
+        "treatment": [
+            "Apply fungicides preventively",
+            "Improve air circulation",
+            "Remove infected plant debris",
+            "Avoid overhead irrigation"
+        ],
+        "severity": "Moderate",
+        "pesticide": {
+            "chemical": {
+                "name": "Azoxystrobin + Difenoconazole",
+                "dosage_per_hectare": 1.8,
+                "unit": "L",
+                "usage": "Foliar spray covering all plant surfaces",
+                "application_frequency": "Every 14 days",
+                "precautions": "Alternate with different fungicide groups to prevent resistance development.",
+                "video_sources": {
+                    "primary": "Search: 'Target Spot Tomato Disease Management'",
+                    "reliable_channels": [
+                        "University of Florida Plant Pathology",
+                        "Auburn University Extension",
+                        "LSU AgCenter"
+                    ],
+                    "search_terms": ["target spot tomato control", "corynespora tomato treatment", "fungicide rotation tomatoes"]
+                }
+            },
+            "organic": {
+                "name": "Copper hydroxide + Potassium bicarbonate",
+                "dosage_per_hectare": 2.5,
+                "unit": "L",
+                "usage": "Preventive applications during favorable weather",
+                "application_frequency": "Every 10 days",
+                "precautions": "Apply copper products during dry weather to avoid phytotoxicity.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Target Spot Control'",
+                    "reliable_channels": [
+                        "Organic Trade Association",
+                        "Sustainable Agriculture Research",
+                        "OMRI Listed Products"
+                    ],
+                    "search_terms": ["organic tomato target spot", "copper fungicides organic", "potassium bicarbonate tomatoes"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://edis.ifas.ufl.edu/publication/pp103",
+                "https://extension.auburn.edu/crops-commercial-horticulture/row-crop-pathology/"
+            ],
+            "step_by_step_guide": [
+                "1. Scout for small brown spots with target-like rings",
+                "2. Begin fungicide program at first symptom appearance",
+                "3. Remove infected leaves and plant debris",
+                "4. Ensure adequate plant spacing for air circulation",
+                "5. Avoid wetting foliage during irrigation",
+                "6. Rotate crops to reduce inoculum buildup"
+            ]
+        }
+    },
+    
+    "Tomato_Tomato_Yellow_Leaf_Curl_Virus": {
+        "name": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+        "description": "A viral disease transmitted by whiteflies that causes upward curling of leaves, yellowing, stunting, and reduced fruit production. No direct cure exists.",
+        "treatment": [
+            "Control whitefly vectors",
+            "Use resistant varieties",
+            "Remove infected plants",
+            "Install reflective mulches to deter whiteflies"
+        ],
+        "severity": "Very High",
+        "pesticide": {
+            "chemical": {
+                "name": "Imidacloprid + Spiromesifen",
+                "dosage_per_hectare": 1.5,
+                "unit": "L",
+                "usage": "Systemic and contact treatment for whiteflies",
+                "application_frequency": "Every 14 days during high whitefly pressure",
+                "precautions": "Focus on vector control, not virus treatment. Use resistant varieties as primary strategy.",
+                "video_sources": {
+                    "primary": "Search: 'TYLCV Whitefly Control Tomatoes'",
+                    "reliable_channels": [
+                        "University of Arizona Extension",
+                        "University of California Desert Research",
+                        "Florida IFAS Entomology"
+                    ],
+                    "search_terms": ["tomato yellow leaf curl control", "whitefly management tomatoes", "TYLCV resistant varieties"]
+                }
+            },
+            "organic": {
+                "name": "Reflective mulch + Beneficial insects",
+                "dosage_per_hectare": "Complete ground coverage",
+                "unit": "Coverage",
+                "usage": "Install reflective mulch, release beneficial insects",
+                "application_frequency": "Continuous prevention",
+                "precautions": "Combine multiple approaches for effective whitefly management.",
+                "video_sources": {
+                    "primary": "Search: 'Organic TYLCV Prevention'",
+                    "reliable_channels": [
+                        "Organic Seed Alliance",
+                        "Sustainable Agriculture Research",
+                        "IPM Institute"
+                    ],
+                    "search_terms": ["organic whitefly control", "reflective mulch tomatoes", "TYLCV organic management"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://edis.ifas.ufl.edu/publication/in1264",
+                "https://extension.arizona.edu/sites/extension.arizona.edu/files/pubs/az1435-2012.pdf"
+            ],
+            "step_by_step_guide": [
+                "1. Plant TYLCV-resistant varieties when available",
+                "2. Install reflective mulch before planting",
+                "3. Monitor for whitefly adults using yellow sticky traps",
+                "4. Remove infected plants immediately",
+                "5. Control weeds that harbor whiteflies",
+                "6. Use row covers during plant establishment"
+            ]
+        }
+    },
+    
+    "Tomato_Tomato_mosaic_virus": {
+        "name": "Tomato Mosaic Virus (ToMV)",
+        "description": "A viral disease causing mottled light and dark green patterns on leaves, leaf distortion, and reduced fruit quality. Highly contagious through plant contact and contaminated tools.",
+        "treatment": [
+            "Use virus-free seeds and transplants",
+            "Sanitize tools between plants",
+            "Remove infected plants immediately",
+            "Control aphid vectors"
+        ],
+        "severity": "High",
+        "pesticide": {
+            "chemical": {
+                "name": "No direct chemical control - focus on prevention",
+                "dosage_per_hectare": "N/A",
+                "unit": "N/A",
+                "usage": "Sanitization and vector control only",
+                "application_frequency": "N/A",
+                "precautions": "No cure exists. Focus entirely on prevention and sanitation.",
+                "video_sources": {
+                    "primary": "Search: 'Tomato Mosaic Virus Prevention'",
+                    "reliable_channels": [
+                        "Cornell Plant Pathology",
+                        "UC Davis Plant Pathology",
+                        "Penn State Plant Disease"
+                    ],
+                    "search_terms": ["tomato mosaic virus prevention", "virus-free tomato seeds", "plant sanitation protocols"]
+                }
+            },
+            "organic": {
+                "name": "Prevention through sanitation + Resistant varieties",
+                "dosage_per_hectare": "N/A",
+                "unit": "N/A",
+                "usage": "Strict sanitation protocols",
+                "application_frequency": "Continuous",
+                "precautions": "Same as chemical - no treatment exists, only prevention.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Virus Prevention Tomatoes'",
+                    "reliable_channels": [
+                        "Organic Seed Alliance",
+                        "Sustainable Seed Company",
+                        "Clean Seed Initiative"
+                    ],
+                    "search_terms": ["virus-free organic seeds", "tomato sanitation organic", "resistant tomato varieties"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://extension.psu.edu/tomato-mosaic-and-tobacco-mosaic",
+                "https://plantpathology.ca.uky.edu/files/ppfs-vg-06.pdf"
+            ],
+            "step_by_step_guide": [
+                "1. Purchase certified virus-free seeds and transplants",
+                "2. Sanitize tools with 10% bleach solution between plants",
+                "3. Avoid handling plants when wet",
+                "4. Remove plants showing mosaic symptoms immediately",
+                "5. Wash hands thoroughly after handling infected plants",
+                "6. Control aphids and other potential vectors"
+            ]
+        }
+    },
+    
+    "Tomato_healthy": {
+        "name": "Healthy Tomato",
+        "description": "A healthy tomato plant exhibits vibrant green foliage, strong stems, regular growth patterns, and absence of disease symptoms or pest damage.",
+        "treatment": [
+            "Maintain consistent watering schedule",
+            "Provide adequate nutrition",
+            "Ensure proper spacing for air circulation",
+            "Monitor regularly for early problem detection"
+        ],
+        "severity": "None",
+        "pesticide": {
+            "chemical": {
+                "name": "Balanced fertilizer + Preventive spray program",
+                "dosage_per_hectare": "As per soil test recommendations",
+                "unit": "Variable",
+                "usage": "Regular fertilization and preventive treatments",
+                "application_frequency": "According to crop needs",
+                "precautions": "Maintain plant health to prevent disease susceptibility.",
+                "video_sources": {
+                    "primary": "Search: 'Healthy Tomato Plant Management'",
+                    "reliable_channels": [
+                        "Extension Master Gardener",
+                        "University Vegetable Programs",
+                        "Agricultural Research Stations"
+                    ],
+                    "search_terms": ["tomato plant health", "preventive tomato care", "integrated tomato management"]
+                }
+            },
+            "organic": {
+                "name": "Compost + Beneficial microorganisms",
+                "dosage_per_hectare": "5-10",
+                "unit": "Tons",
+                "usage": "Soil amendment and foliar applications",
+                "application_frequency": "Seasonally",
+                "precautions": "Build soil health for natural disease resistance.",
+                "video_sources": {
+                    "primary": "Search: 'Organic Tomato Plant Health'",
+                    "reliable_channels": [
+                        "Organic Farming Association",
+                        "Permaculture Research",
+                        "Sustainable Agriculture Centers"
+                    ],
+                    "search_terms": ["organic tomato care", "soil health tomatoes", "compost tomato production"]
+                }
+            }
+        },
+        "additional_resources": {
+            "extension_guides": [
+                "https://extension.umn.edu/vegetables/growing-tomatoes",
+                "https://extension.illinois.edu/vegetables/tomatoes"
+            ],
+            "step_by_step_guide": [
+                "1. Conduct soil test before planting",
+                "2. Plant in well-draining, fertile soil",
+                "3. Provide consistent water (1-2 inches per week)",
+                "4. Mulch around plants to conserve moisture",
+                "5. Monitor weekly for any signs of problems",
+                "6. Harvest regularly to maintain plant productivity"
+            ]
+        }
+    }
+} 
