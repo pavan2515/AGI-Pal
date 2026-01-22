@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AgriPal - Plant Library</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #a5d6a7;
+            --accent-color: #ffd54f;
+            --text-light: #ffffff;
+            --text-dark: #263238;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            color: var(--text-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--primary-color), #1b5e20);
+            color: var(--text-light);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 25px;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .nav-active {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .translate-widget {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        .library {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .library h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plant-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            text-align: left;
+        }
+
+        .plant-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .plant-card p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+        }
+    </style>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <div class="logo-text">Agri<span>Pal</span></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index">Home</a></li>
+                        <li><a href="detection-tool">Detection Tool</a></li>
+                        <li><a href="library" class="nav-active">Plant Library</a></li>
+                        <li><a href="about-us">About Us</a></li>
+                        <li><a href="contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div id="google_translate_element" class="translate-widget"></div>
+    </header>
+
+    <!-- Plant Library Section -->
+<style>
+  .plant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .plant-card {
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .plant-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+    </style>
+
+    <div class="plant-grid">
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/apple.jpg') }}" alt="Apple">
+        <h3>Apple</h3>
+        <p>Diseases: Apple Scab, Black Rot, Cedar Apple Rust<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/blueberry.jpg') }}" alt="Blueberry">
+        <h3>Blueberry</h3>
+        <p>Status: Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/cheery.jpg') }}" alt="Cherry">
+        <h3>Cherry (including sour)</h3>
+        <p>Diseases: Powdery Mildew<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/maize.jpeg') }}" alt="Corn">
+        <h3>Corn (maize)</h3>
+        <p>Diseases: Cercospora Leaf Spot (Gray Leaf Spot), Common Rust, Northern Leaf Blight<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/grapes.jpg') }}" alt="Grape">
+        <h3>Grape</h3>
+        <p>Diseases: Black Rot, Esca (Black Measles), Leaf Blight (Isariopsis Leaf Spot)<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/orange.jpg') }}" alt="Orange">
+        <h3>Orange</h3>
+        <p>Disease: Haunglongbing (Citrus Greening)</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/peach.jpg') }}" alt="Peach">
+        <h3>Peach</h3>
+        <p>Disease: Bacterial Spot<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/pepper.jpg') }}" alt="Pepper">
+        <h3>Pepper (bell)</h3>
+        <p>Disease: Bacterial Spot<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/potato.jpg') }}" alt="Potato">
+        <h3>Potato</h3>
+        <p>Diseases: Early Blight, Late Blight<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/rasberry.jpeg') }}" alt="Raspberry">
+        <h3>Raspberry</h3>
+        <p>Status: Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/soyabean.jpeg') }}" alt="Soybean">
+        <h3>Soybean</h3>
+        <p>Status: Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/squash.jpeg') }}" alt="Squash">
+        <h3>Squash</h3>
+        <p>Disease: Powdery Mildew</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/strawberry.jpg') }}" alt="Strawberry">
+        <h3>Strawberry</h3>
+        <p>Disease: Leaf Scorch<br>+ Healthy</p>
+    </div>
+
+    <div class="plant-card">
+        <img src="{{ url_for('static', filename='images/tomato.jpg') }}" alt="Tomato">
+        <h3>Tomato</h3>
+        <p>Diseases: Bacterial Spot, Early Blight, Late Blight, Leaf Mold,<br>
+        Septoria Leaf Spot, Spider Mites, Target Spot,<br>
+        Yellow Leaf Curl Virus, Mosaic Virus<br>+ Healthy</p>
+    </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection Results - AgriPal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* Hero Background - Safari Compatible */
+        .hero-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(135deg, rgba(76, 175, 80, 0.3) 0%, rgba(139, 195, 74, 0.3) 100%),
+                url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920') center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            -webkit-backdrop-filter: blur(1px);
+            backdrop-filter: blur(1px);
+        }
+
+        .result-container {
+            position: relative;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.95) 0%, rgba(85, 139, 47, 0.95) 100%);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1920') center/cover;
+            opacity: 0.2;
+        }
+
+        .page-header h1 {
+            color: white;
+            font-weight: 700;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .page-header p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            color: white;
+            padding: 20px 25px;
+            border: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .card-header i {
+            margin-right: 10px;
+        }
+
+        .summary-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 248, 244, 0.95) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(76, 175, 80, 0.15);
+            border: 2px solid rgba(76, 175, 80, 0.3);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .summary-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #4caf50;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .summary-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        .summary-item .label {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-item .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .gradcam-section {
+            background: linear-gradient(135deg, rgba(255, 248, 225, 0.95) 0%, rgba(255, 236, 179, 0.95) 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 193, 7, 0.4);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradcam-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .gradcam-image-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradcam-image-wrapper h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .gradcam-image-wrapper img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .heatmap-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .legend-item .color {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .color.red { background: linear-gradient(135deg, #f44336, #d32f2f); }
+        .color.yellow { background: linear-gradient(135deg, #ffc107, #ffa000); }
+        .color.blue { background: linear-gradient(135deg, #2196f3, #1976d2); }
+
+        .info-treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .disease-info-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #f44336;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .disease-info-card h3 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .severity-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .severity-low { 
+            background: linear-gradient(135deg, #c8e6c9, #a5d6a7); 
+            color: #2e7d32; 
+            border: 2px solid #66bb6a;
+        }
+
+        .severity-moderate, .severity-medium { 
+            background: linear-gradient(135deg, #fff9c4, #fff59d); 
+            color: #f57f17; 
+            border: 2px solid #fbc02d;
+        }
+
+        .severity-high { 
+            background: linear-gradient(135deg, #ffccbc, #ffab91); 
+            color: #d84315; 
+            border: 2px solid #ff7043;
+        }
+
+        .severity-severe { 
+            background: linear-gradient(135deg, #ffcdd2, #ef9a9a); 
+            color: #c62828; 
+            border: 2px solid #e57373;
+        }
+
+        .treatment-info-box {
+            background: rgba(248, 249, 250, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #4caf50;
+        }
+
+        .treatment-info-box strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .treatment-info-box p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .treatment-step {
+            background: rgba(227, 242, 253, 0.8);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #2196f3;
+        }
+
+        .pesticide-card {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .pesticide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #2196f3 0%, #1976d2 100%);
+        }
+
+        .pesticide-card.organic-card::before {
+            background: linear-gradient(180deg, #4caf50 0%, #388e3c 100%);
+        }
+
+        .pesticide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0,0,0,0.15);
+        }
+
+        .pesticide-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(240, 240, 240, 0.8);
+        }
+
+        .pesticide-header i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+
+        .chemical-card .pesticide-header i { color: #2196f3; }
+        .organic-card .pesticide-header i { color: #4caf50; }
+
+        .pesticide-header h6 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+        }
+
+        .treatment-name {
+            background: linear-gradient(135deg, rgba(227, 242, 253, 0.9) 0%, rgba(187, 222, 251, 0.9) 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+
+        .organic-card .treatment-name {
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.9) 0%, rgba(200, 230, 201, 0.9) 100%);
+            border-left-color: #4caf50;
+        }
+
+        .treatment-name p {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0;
+            color: #1976d2;
+        }
+
+        .organic-card .treatment-name p {
+            color: #2e7d32;
+        }
+
+        .dosage-calculator {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.95) 0%, rgba(25, 118, 210, 0.95) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .organic-card .dosage-calculator {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.95) 0%, rgba(56, 142, 60, 0.95) 100%);
+        }
+
+        .dosage-calculator h6 {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .dosage-calculator .dosage-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .dosage-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .video-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 243, 224, 0.9);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .video-section h6 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .video-link {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);
+        }
+
+        .video-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 111, 0, 0.4);
+            color: white;
+        }
+
+        .alert-custom {
+            border-left: 4px solid #f44336;
+            background: rgba(255, 235, 238, 0.9);
+            color: #c62828;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .alert-custom strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .alert-custom p {
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .leaf-analysis-section {
+            background: rgba(255, 255, 255, 0.92);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            border: 2px solid rgba(76, 175, 80, 0.2);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .leaf-analysis-section h3 {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .leaf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .leaf-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        .leaf-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.2);
+            border-left-width: 6px;
+        }
+
+        .leaf-card h5 {
+            color: #2e7d32;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .leaf-info-item {
+            margin: 10px 0;
+            padding: 8px 12px;
+            background: rgba(248, 249, 250, 0.9);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .leaf-info-item strong {
+            color: #666;
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .confidence-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .confidence-high { background: #c8e6c9; color: #2e7d32; }
+        .confidence-medium { background: #fff9c4; color: #f57f17; }
+        .confidence-low { background: #ffccbc; color: #d84315; }
+
+        .progress {
+            background-color: rgba(233, 236, 239, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 15px 40px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.4);
+            color: white;
+        }
+
+        .btn-custom i {
+            margin-right: 10px;
+        }
+
+        .btn-secondary-custom {
+            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+        }
+
+        .btn-post-harvest {
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+        }
+
+        .btn-chatbot {
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+        }
+
+        #google_translate_element {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .resources-section {
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            border: 2px solid rgba(33, 150, 243, 0.2);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .resources-section h3 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .step-card {
+            background: rgba(227, 242, 253, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2196f3;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(33, 150, 243, 0.2);
+        }
+
+        .extension-link {
+            display: block;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #1976d2;
+            border-left: 3px solid #2196f3;
+            transition: all 0.3s ease;
+        }
+
+        .extension-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(33, 150, 243, 0.2);
+            color: #1565c0;
+        }
+
+        @media (max-width: 1200px) {
+            .info-treatment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.8rem; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .gradcam-comparison { grid-template-columns: 1fr; }
+            .leaf-grid { grid-template-columns: 1fr; }
+            .btn-custom {
+                width: 100%;
+                margin: 10px 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-background"></div>
+
+    <div class="result-container">
+        <div class="container">
+            <!-- Professional Header -->
+            <div class="page-header">
+                <div class="text-center">
+                    <h1><i class="fas fa-microscope"></i> Plant Disease Analysis Results</h1>
+                    <p class="mt-3">Professional AI-Powered Agricultural Diagnostics</p>
+                </div>
+            </div>
+
+            <!-- Google Translate -->
+            <div class="text-center mb-4">
+                <div id="google_translate_element"></div>
+            </div>
+
+            <!-- Detection Summary -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="summary-card">
+                        <h3 class="mb-0"><i class="fas fa-chart-line"></i> Detection Summary</h3>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="label">🔬 Disease Detected</span>
+                                <span class="value">{{ predicted_class|replace('_', ' ') }}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">📊 AI Confidence</span>
+                                <span class="value">{{ "%.1f"|format(confidence) }}%</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">⚠️ Severity Level</span>
+                                <span class="value">{{ severity if severity else 'Unknown' }}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">🍃 Leaves Analyzed</span>
+                                <span class="value">{{ total_leaves if total_leaves else 0 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Analysis Section - GradCAM + Color Segmentation -->
+            {% if gradcam_url or heatmap_url or segmented_image_url %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="gradcam-section">
+                        <h3><i class="fas fa-crosshairs"></i> 🎯 AI Visual Analysis & Disease Localization</h3>
+                        <p class="text-muted mt-3">
+                            <i class="fas fa-info-circle"></i> 
+                            Multiple AI techniques analyze your plant: <span class="text-danger fw-bold">Red/yellow areas</span> show affected regions, 
+                            and color-based segmentation identifies disease severity by leaf discoloration.
+                        </p>
+                        
+                        <div class="gradcam-comparison">
+                            <!-- Original Image -->
+                            <div class="gradcam-image-wrapper">
+                                <h4><i class="fas fa-image"></i> Original Plant Image</h4>
+                                {% if image_url %}
+                                <img src="{{ image_url }}" alt="Original Plant" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Image+Not+Found';">
+                                {% else %}
+                                <div class="alert alert-warning">Original image not available</div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- GradCAM Heatmap -->
+                            {% if gradcam_url %}
+                            <div class="gradcam-image-wrapper">
+                                <h4><i class="fas fa-fire"></i> AI GradCAM Heat Map</h4>
+                                <img src="{{ gradcam_url }}" alt="AI GradCAM Heatmap" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Heatmap+Not+Generated';">
+                                <p class="text-muted small mt-2 mb-0">
+                                    <i class="fas fa-brain"></i> Deep learning attention map - where the AI focused to make its prediction
+                                </p>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Color-Based Segmentation Heatmap -->
+                            {% if heatmap_url %}
+                            <div class="gradcam-image-wrapper">
+                                <h4><i class="fas fa-palette"></i> Color Severity Heatmap</h4>
+                                <img src="{{ heatmap_url }}" alt="Color Severity Heatmap" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Heatmap+Not+Generated';">
+                                <p class="text-muted small mt-2 mb-0">
+                                    <i class="fas fa-tint"></i> Color-based analysis showing disease severity distribution across leaves
+                                </p>
+                                {% if plant_severity is not none %}
+                                <div class="mt-3 p-2 rounded text-center" style="background: rgba(255,193,7,0.2); border: 2px solid #ffc107;">
+                                    <strong style="color: #f57f17;">Overall Plant Severity: {{ "%.1f"|format(plant_severity) }}%</strong>
+                                    <br><small class="text-muted">({{ plant_severity_level }})</small>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Segmented Leaf Overlay -->
+                            {% if segmented_image_url %}
+                            <div class="gradcam-image-wrapper">
+                                <h4><i class="fas fa-leaf"></i> Leaf Segmentation</h4>
+                                <img src="{{ segmented_image_url }}" alt="Segmented Leaves" onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Segmentation+Not+Generated';">
+                                <p class="text-muted small mt-2 mb-0">
+                                    <i class="fas fa-cut"></i> Individual leaves detected and isolated for separate analysis
+                                </p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                  <!-- Analysis Legend -->
+            <div class="heatmap-legend mt-4">
+                <div class="legend-item">
+                <span class="color red"></span>
+                <span>High Severity / Attention</span>
+                </div>
+                <div class="legend-item">
+                <span class="color yellow"></span>
+                <span>Medium Severity</span>
+                </div>
+                <div class="legend-item">
+                <span class="color blue"></span>
+                <span>Low Severity / Healthy</span>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                {% endif %}
+        <!-- Multi-Disease Detection Section -->
+                {% if is_multi_disease and unique_diseases %}
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="alert" style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.95) 0%, rgba(251, 192, 45, 0.95) 100%); border: none; border-radius: 20px; padding: 30px; color: white; box-shadow: 0 5px 30px rgba(255, 152, 0, 0.3);">
+                            <h3 class="text-white mb-3">
+                                <i class="fas fa-exclamation-triangle"></i> ⚠️ Multiple Diseases Detected on Same Plant
+                            </h3>
+                            <p class="mb-3" style="font-size: 1.1rem;">
+                                Our AI analysis detected <strong>{{ unique_diseases|length }} different diseases</strong> across your <strong>{{ dominant_plant_type }}</strong> plant leaves. 
+                                Combined treatment recommendations are provided below to address all conditions.
+                            </p>
+                            <div class="row">
+                                {% for disease, data in unique_diseases.items() %}
+                                <div class="col-md-6 mb-3">
+                                    <div style="background: rgba(255,255,255,0.25); padding: 18px; border-radius: 12px; backdrop-filter: blur(10px); border: 2px solid rgba(255,255,255,0.3);">
+                                        <h5 class="text-white mb-2">
+                                            <i class="fas fa-virus"></i> {{ disease|replace('_', ' ') }}
+                                        </h5>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span style="background: rgba(255,255,255,0.3); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">
+                                                <i class="fas fa-leaf"></i> {{ data.count }} leaf{{ 's' if data.count > 1 else '' }}
+                                            </span>
+                                            <span style="background: rgba(76, 175, 80, 0.9); padding: 5px 12px; border-radius: 15px; font-size: 0.9rem;">
+                                                <i class="fas fa-chart-line"></i> {{ "%.1f"|format(data.total_confidence / data.count) }}% confidence
+                                            </span>
+                                        </div>
+                                        <small class="d-block mt-2" style="opacity: 0.9;">
+                                            Detected on leaves: #{{ data.leaves|join(', #') }}
+                                        </small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combined Treatment Plan -->
+                {% if combined_treatments %}
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="result-card" style="border: 3px solid #ff9800;">
+                            <div class="card-header" style="background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%);">
+                                <h4 class="mb-0"><i class="fas fa-th-list"></i> 🔀 Combined Treatment Plan for Multiple Diseases</h4>
+                            </div>
+                            <div class="card-body p-4">
+                                <!-- Disease Summary -->
+                                <div style="background: linear-gradient(135deg, rgba(255, 243, 224, 0.9) 0%, rgba(255, 224, 178, 0.9) 100%); padding: 25px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid #ff9800;">
+                                    <h5 class="mb-3" style="color: #e65100;">
+                                        <i class="fas fa-clipboard-list"></i> Treatment Required For:
+                                    </h5>
+                                    <div class="row">
+                                        {% for disease in combined_treatments.diseases %}
+                                        <div class="col-md-6 mb-3">
+                                            <div style="background: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #ff9800; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                                                <strong style="color: #e65100; font-size: 1.1rem;">
+                                                    {{ loop.index }}. {{ disease.display_name }}
+                                                </strong><br>
+                                                <div class="mt-2 d-flex justify-content-between align-items-center">
+                                                    <small class="text-muted">
+                                                        <i class="fas fa-leaf"></i> Found on {{ disease.count }} leaf{{ 's' if disease.count > 1 else '' }}
+                                                    </small>
+                                                    <small style="background: #c8e6c9; padding: 4px 10px; border-radius: 12px; color: #2e7d32;">
+                                                        <i class="fas fa-percentage"></i> {{ "%.1f"|format(disease.avg_confidence) }}%
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <!-- Combined Descriptions -->
+                                {% if combined_treatments.description %}
+                                <div style="background: rgba(227, 242, 253, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #2196f3;">
+                                    <h5 style="color: #1976d2; margin-bottom: 15px;">
+                                        <i class="fas fa-info-circle"></i> About These Diseases
+                                    </h5>
+                                    <div style="color: #333; line-height: 1.7;">
+                                        {{ combined_treatments.description|safe|replace('**', '<strong>')|replace('**', '</strong>') }}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- Combined Treatment Steps -->
+                                {% if combined_treatments.treatment %}
+                                <div style="background: rgba(232, 245, 233, 0.8); padding: 20px; border-radius: 12px; margin-bottom: 25px; border-left: 4px solid #4caf50;">
+                                    <h5 style="color: #2e7d32; margin-bottom: 20px;">
+                                        <i class="fas fa-clipboard-check"></i> 📋 Comprehensive Treatment Protocol
+                                    </h5>
+                                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                                        {% for step in combined_treatments.treatment %}
+                                        {% if step %}
+                                            {% if '===' in step %}
+                                            <div style="background: linear-gradient(135deg, #4caf50, #66bb6a); color: white; padding: 12px 15px; border-radius: 8px; margin: 15px 0 10px 0; font-weight: 700;">
+                                                {{ step|replace('===', '')|replace('===', '') }}
+                                            </div>
+                                            {% else %}
+                                            <div style="padding: 10px 15px; margin: 5px 0; border-left: 3px solid #81c784; background: rgba(232, 245, 233, 0.5); border-radius: 5px;">
+                                                {{ step }}
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- Combined Pesticide Treatments -->
+                                <div class="row">
+                                    <!-- Chemical Treatment -->
+                                    {% if combined_treatments.pesticide.chemical and combined_treatments.pesticide.chemical.usage %}
+                                    <div class="col-md-6 mb-3">
+                                        <div style="background: linear-gradient(135deg, rgba(227, 242, 253, 0.95) 0%, rgba(187, 222, 251, 0.95) 100%); padding: 25px; border-radius: 15px; border: 2px solid #2196f3; height: 100%;">
+                                            <h6 style="color: #1565c0; font-size: 1.3rem; margin-bottom: 20px;">
+                                                <i class="fas fa-flask"></i> 🧪 Combined Chemical Treatment
+                                            </h6>
+                                            
+                                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                                <strong style="color: #1976d2; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-hand-sparkles"></i> Application Instructions:
+                                                </strong>
+                                                <p style="margin: 0; color: #333; line-height: 1.6; white-space: pre-line;">{{ combined_treatments.pesticide.chemical.usage }}</p>
+                                            </div>
+                                            
+                                            {% if combined_treatments.pesticide.chemical.frequency %}
+                                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                                <strong style="color: #1976d2; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-calendar-alt"></i> Application Schedule:
+                                                </strong>
+                                                <p style="margin: 0; color: #333; line-height: 1.6;">{{ combined_treatments.pesticide.chemical.frequency }}</p>
+                                            </div>
+                                            {% endif %}
+                                            
+                                            {% if combined_treatments.pesticide.chemical.safety %}
+                                            <div style="background: rgba(255, 235, 238, 0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #f44336;">
+                                                <strong style="color: #c62828; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-shield-alt"></i> Safety Precautions:
+                                                </strong>
+                                                <p style="margin: 0; color: #d32f2f; line-height: 1.6;">{{ combined_treatments.pesticide.chemical.safety }}</p>
+                                            </div>
+                                            {% endif %}
+                                            
+                                            <!-- Video Resources for Chemical -->
+                                            {% if combined_treatments.pesticide.chemical.video_sources and combined_treatments.pesticide.chemical.video_sources.search_urls %}
+                                            <div style="margin-top: 15px; padding: 15px; background: rgba(255, 243, 224, 0.9); border-radius: 10px;">
+                                                <h6 style="color: #e65100; margin-bottom: 10px;">
+                                                    <i class="fab fa-youtube"></i> Video Tutorials
+                                                </h6>
+                                                {% for video in combined_treatments.pesticide.chemical.video_sources.search_urls[:3] %}
+                                                <a href="{{ video.url }}" target="_blank" style="display: inline-block; margin: 5px; padding: 8px 15px; background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%); color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);">
+                                                    <i class="fas fa-play-circle"></i> {{ video.term }}
+                                                </a>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    
+                                    <!-- Organic Treatment -->
+                                    {% if combined_treatments.pesticide.organic and combined_treatments.pesticide.organic.usage %}
+                                    <div class="col-md-6 mb-3">
+                                        <div style="background: linear-gradient(135deg, rgba(232, 245, 233, 0.95) 0%, rgba(200, 230, 201, 0.95) 100%); padding: 25px; border-radius: 15px; border: 2px solid #4caf50; height: 100%;">
+                                            <h6 style="color: #2e7d32; font-size: 1.3rem; margin-bottom: 20px;">
+                                                <i class="fas fa-leaf"></i> 🌿 Combined Organic Treatment
+                                            </h6>
+                                            
+                                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                                <strong style="color: #388e3c; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-hand-sparkles"></i> Application Instructions:
+                                                </strong>
+                                                <p style="margin: 0; color: #333; line-height: 1.6; white-space: pre-line;">{{ combined_treatments.pesticide.organic.usage }}</p>
+                                            </div>
+                                            
+                                            {% if combined_treatments.pesticide.organic.frequency %}
+                                            <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                                                <strong style="color: #388e3c; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-calendar-alt"></i> Application Schedule:
+                                                </strong>
+                                                <p style="margin: 0; color: #333; line-height: 1.6;">{{ combined_treatments.pesticide.organic.frequency }}</p>
+                                            </div>
+                                            {% endif %}
+                                            
+                                            {% if combined_treatments.pesticide.organic.safety %}
+                                            <div style="background: rgba(232, 245, 233, 0.9); padding: 15px; border-radius: 10px; border-left: 4px solid #4caf50;">
+                                                <strong style="color: #2e7d32; display: block; margin-bottom: 10px;">
+                                                    <i class="fas fa-check-circle"></i> Safety & Benefits:
+                                                </strong>
+                                                <p style="margin: 0; color: #2e7d32; line-height: 1.6;">{{ combined_treatments.pesticide.organic.safety }}</p>
+                                            </div>
+                                            {% endif %}
+                                            
+                                            <!-- Video Resources for Organic -->
+                                            {% if combined_treatments.pesticide.organic.video_sources and combined_treatments.pesticide.organic.video_sources.search_urls %}
+                                            <div style="margin-top: 15px; padding: 15px; background: rgba(255, 243, 224, 0.9); border-radius: 10px;">
+                                                <h6 style="color: #e65100; margin-bottom: 10px;">
+                                                    <i class="fab fa-youtube"></i> Video Tutorials
+                                                </h6>
+                                                {% for video in combined_treatments.pesticide.organic.video_sources.search_urls[:3] %}
+                                                <a href="{{ video.url }}" target="_blank" style="display: inline-block; margin: 5px; padding: 8px 15px; background: linear-gradient(135deg, #ff6f00 0%, #ff9800 100%); color: white; text-decoration: none; border-radius: 20px; font-size: 0.9rem; box-shadow: 0 2px 10px rgba(255, 111, 0, 0.3);">
+                                                    <i class="fas fa-play-circle"></i> {{ video.term }}
+                                                </a>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Overall Severity Warning -->
+                                <div style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(251, 192, 45, 0.2) 100%); padding: 20px; border-radius: 12px; border: 2px solid #ff9800; margin-top: 20px;">
+                                    <h6 style="color: #e65100; margin-bottom: 10px;">
+                                        <i class="fas fa-exclamation-circle"></i> ⚠️ Important Notice
+                                    </h6>
+                                    <p style="margin: 0; color: #333; line-height: 1.6;">
+                                        <strong>Combined Severity:</strong> <span style="background: #fff; padding: 4px 12px; border-radius: 15px; color: #e65100;">{{ combined_treatments.severity }}</span><br><br>
+                                        Since multiple diseases are present, immediate action is recommended. Apply treatments as per the combined schedule above. 
+                                        Monitor your plants daily and consult with a local agricultural extension officer if conditions worsen.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+
+                <!-- Filtered Leaves Notice -->
+                {% if filtered_leaf_count and filtered_leaf_count > 0 %}
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="alert" style="background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(25, 118, 210, 0.15) 100%); border: 2px solid #2196f3; border-radius: 15px; padding: 20px;">
+                            <h5 style="color: #1565c0; margin-bottom: 10px;">
+                                <i class="fas fa-filter"></i> Leaf Filtering Applied
+                            </h5>
+                            <p style="margin: 0; color: #333; line-height: 1.6;">
+                                <i class="fas fa-info-circle"></i> 
+                                <strong>{{ filtered_leaf_count }}</strong> leaf segment(s) were filtered out as they appeared to belong to a different plant species.
+                                Our analysis focused exclusively on <strong>{{ dominant_plant_type }}</strong> leaves to ensure accurate disease identification.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+        <!-- Disease Info + Treatments -->
+        {% if result %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="info-treatment-grid">
+                    <!-- Disease Information -->
+                    <div class="disease-info-card">
+                        <h3><i class="fas fa-virus"></i> Disease Information</h3>
+                        
+                        <span class="severity-badge severity-{{ severity|lower if severity else 'unknown' }}">
+                            <i class="fas fa-exclamation-triangle"></i> {{ severity if severity else 'Unknown' }} Severity
+                        </span>
+
+                        <div class="treatment-info-box">
+                            <strong>📋 About This Disease</strong>
+                            <p class="mb-0 text-muted">
+                                {{ result.description if result.description else 'No description available.' }}
+                            </p>
+                        </div>
+
+                        {% if result.treatment %}
+                        <div class="mt-3">
+                            <h6 class="fw-bold text-dark mb-3">🎯 Treatment Steps</h6>
+                            {% for step in result.treatment %}
+                            <div class="treatment-step">
+                                <strong>{{ loop.index }}.</strong> {{ step }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Chemical Treatment -->
+                    {% if result.pesticide and result.pesticide.chemical %}
+                    <div class="pesticide-card chemical-card">
+                        <div class="pesticide-header">
+                            <i class="fas fa-flask"></i>
+                            <h6>Chemical Treatment</h6>
+                        </div>
+                        
+                        <div class="treatment-name">
+                            <p>{{ result.pesticide.chemical.name }}</p>
+                        </div>
+
+                        {% if chemical_dosage %}
+                        <div class="dosage-calculator">
+                            <h6><i class="fas fa-calculator"></i> Required Dosage</h6>
+                            <div class="dosage-amount">{{ "%.1f"|format(chemical_dosage) }} {{ result.pesticide.chemical.unit }}</div>
+                            <small>For {{ area }} {{ area_unit }}</small>
+                            <span class="dosage-info">Base: {{ result.pesticide.chemical.dosage_per_hectare }} {{ result.pesticide.chemical.unit }}/hectare</span>
+                        </div>
+                        {% endif %}
+
+                        <!-- Usage Instructions -->
+                        {% if result.pesticide.chemical.usage %}
+                        <div class="treatment-info-box">
+                            <strong><i class="fas fa-hand-sparkles"></i> Usage Instructions</strong>
+                            <p class="mb-0 mt-2">{{ result.pesticide.chemical.usage }}</p>
+                        </div>
+                        {% endif %}
+
+                        <!-- Application Frequency -->
+                        {% if result.pesticide.chemical.frequency %}
+                        <div class="treatment-info-box">
+                            <strong><i class="fas fa-calendar-check"></i> Application Frequency</strong>
+                            <p class="mb-0 mt-2">{{ result.pesticide.chemical.frequency }}</p>
+                        </div>
+                        {% endif %}
+
+                        <!-- Video Resources -->
+                        {% if result.pesticide.chemical.video_sources %}
+                        <div class="video-section">
+                            <h6><i class="fab fa-youtube"></i> Video Tutorials</h6>
+                            {% if result.pesticide.chemical.video_sources.search_urls %}
+                                {% for video in result.pesticide.chemical.video_sources.search_urls[:3] %}
+                                <a href="{{ video.url }}" target="_blank" class="video-link">
+                                    <i class="fas fa-play-circle"></i> {{ video.term }}
+                                </a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        <!-- Safety Precautions -->
+                        {% if result.pesticide.chemical.safety %}
+                        <div class="alert-custom">
+                            <strong><i class="fas fa-shield-alt"></i> Safety Precautions:</strong>
+                            <p class="mb-0 mt-2">{{ result.pesticide.chemical.safety }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    <!-- Organic Treatment -->
+                    {% if result.pesticide and result.pesticide.organic %}
+                    <div class="pesticide-card organic-card">
+                        <div class="pesticide-header">
+                            <i class="fas fa-leaf"></i>
+                            <h6>Organic Treatment</h6>
+                        </div>
+                        
+                        <div class="treatment-name">
+                            <p>{{ result.pesticide.organic.name }}</p>
+                        </div>
+
+                        {% if organic_dosage %}
+                        <div class="dosage-calculator">
+                            <h6><i class="fas fa-calculator"></i> Required Dosage</h6>
+                            <div class="dosage-amount">{{ "%.1f"|format(organic_dosage) }} {{ result.pesticide.organic.unit }}</div>
+                            <small>For {{ area }} {{ area_unit }}</small>
+                            <span class="dosage-info">Base: {{ result.pesticide.organic.dosage_per_hectare }} {{ result.pesticide.organic.unit }}/hectare</span>
+                        </div>
+                        {% endif %}
+
+                        <!-- Usage Instructions -->
+                        {% if result.pesticide.organic.usage %}
+                        <div class="treatment-info-box">
+                            <strong><i class="fas fa-hand-sparkles"></i> Usage Instructions</strong>
+                            <p class="mb-0 mt-2">{{ result.pesticide.organic.usage }}</p>
+                        </div>
+                        {% endif %}
+
+                        <!-- Application Frequency -->
+                        {% if result.pesticide.organic.frequency %}
+                        <div class="treatment-info-box">
+                            <strong><i class="fas fa-calendar-check"></i> Application Frequency</strong>
+                            <p class="mb-0 mt-2">{{ result.pesticide.organic.frequency }}</p>
+                        </div>
+                        {% endif %}
+
+                        <!-- Video Resources -->
+                        {% if result.pesticide.organic.video_sources %}
+                        <div class="video-section">
+                            <h6><i class="fab fa-youtube"></i> Video Tutorials</h6>
+                            {% if result.pesticide.organic.video_sources.search_urls %}
+                                {% for video in result.pesticide.organic.video_sources.search_urls[:3] %}
+                                <a href="{{ video.url }}" target="_blank" class="video-link">
+                                    <i class="fas fa-play-circle"></i> {{ video.term }}
+                                </a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% endif %}
+
+                        <!-- Safety & Benefits -->
+                        {% if result.pesticide.organic.safety %}
+                        <div style="background: rgba(232, 245, 233, 0.9); padding: 15px; border-radius: 10px; margin-top: 15px; border-left: 4px solid #4caf50;">
+                            <strong style="color: #2e7d32;"><i class="fas fa-check-circle"></i> Safety & Benefits:</strong>
+                            <p style="margin: 5px 0 0 0; color: #2e7d32;">{{ result.pesticide.organic.safety }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Additional Resources Section -->
+        {% if result and result.additional_resources %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="resources-section">
+                    <h3><i class="fas fa-book-open"></i> Additional Resources & Step-by-Step Guide</h3>
+                    
+                    <!-- Step-by-Step Guide -->
+                    {% if result.additional_resources.step_by_step_guide %}
+                    <div class="mb-4">
+                        <h5 class="text-success mb-3"><i class="fas fa-list-ol"></i> Step-by-Step Treatment Guide</h5>
+                        <div class="row">
+                            {% for step in result.additional_resources.step_by_step_guide %}
+                            <div class="col-md-6 mb-3">
+                                <div class="step-card">
+                                    {{ step }}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Extension Guides -->
+                    {% if result.additional_resources.extension_guides %}
+                    <div>
+                        <h5 class="text-primary mb-3"><i class="fas fa-external-link-alt"></i> Expert Extension Guides</h5>
+                        {% for guide in result.additional_resources.extension_guides %}
+                        <a href="{{ guide }}" target="_blank" class="extension-link">
+                            <i class="fas fa-link"></i> {{ guide }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Individual Leaf Analysis -->
+        {% if all_predictions and all_predictions|length > 0 %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="leaf-analysis-section">
+                    <h3><i class="fas fa-leaf"></i> 🍃 Individual Leaf Analysis Results</h3>
+                    <p class="text-muted mb-0">Detailed analysis of each detected leaf segment with visual previews</p>
+                    
+                    <div class="leaf-grid">
+                        {% for pred in all_predictions %}
+                        <div class="leaf-card">
+                            <h5>🔬 Leaf #{{ pred.leaf_number }}</h5>
+                            
+                            <!-- Leaf Image Preview if available -->
+                            {% if pred.leaf %}
+                            <div class="text-center mb-3">
+                                <img src="/static/individual_leaves/{{ pred.leaf }}" 
+                                    alt="Leaf {{ pred.leaf_number }}" 
+                                    style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);"
+                                    onerror="this.style.display='none';">
+                            </div>
+                            {% endif %}
+                            
+                            <div class="leaf-info-item">
+                                <strong>Disease Detected</strong>
+                                {{ pred.predicted_class|replace('_', ' ') }}
+                            </div>
+                            <div class="leaf-info-item">
+                                <strong>AI Confidence</strong>
+                                {% if pred.confidence >= 90 %}
+                                <span class="confidence-badge confidence-high">{{ "%.1f"|format(pred.confidence) }}%</span>
+                                {% elif pred.confidence >= 70 %}
+                                <span class="confidence-badge confidence-medium">{{ "%.1f"|format(pred.confidence) }}%</span>
+                                {% else %}
+                                <span class="confidence-badge confidence-low">{{ "%.1f"|format(pred.confidence) }}%</span>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Model Severity -->
+                            {% if pred.model_severity %}
+                            <div class="leaf-info-item">
+                                <strong>Model Severity Assessment</strong>
+                                <span class="badge bg-secondary">{{ pred.model_severity }}</span>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Color-Based Severity -->
+                            {% if pred.color_severity is not none %}
+                            <div class="leaf-info-item">
+                                <strong>Color-Based Severity Analysis</strong>
+                                <div class="progress mt-2" style="height: 25px;">
+                                    {% if pred.color_severity >= 50 %}
+                                    <div class="progress-bar bg-danger" style="width: {{ pred.color_severity }}%;">{{ "%.0f"|format(pred.color_severity) }}% - {{ pred.color_severity_level }}</div>
+                                    {% elif pred.color_severity >= 30 %}
+                                    <div class="progress-bar bg-warning" style="width: {{ pred.color_severity }}%;">{{ "%.0f"|format(pred.color_severity) }}% - {{ pred.color_severity_level }}</div>
+                                    {% else %}
+                                    <div class="progress-bar bg-info" style="width: {{ pred.color_severity }}%;">{{ "%.0f"|format(pred.color_severity) }}% - {{ pred.color_severity_level }}</div>
+                                    {% endif %}
+                                </div>
+                                <small class="text-muted d-block mt-1">
+                                    <i class="fas fa-palette"></i> Based on brown/yellow discoloration analysis
+                                </small>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Leaf Area -->
+                            {% if pred.leaf_area %}
+                            <div class="leaf-info-item">
+                                <strong>Leaf Area</strong>
+                                {{ "{:,}".format(pred.leaf_area) }} pixels
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="row mt-5 mb-5">
+            <div class="col-12 text-center">
+                <a href="/detection-tool" class="btn btn-custom me-3 mb-3">
+                    <i class="fas fa-upload"></i> Analyze Another Plant
+                </a>
+                <a href="/post-harvest" class="btn btn-custom btn-post-harvest me-3 mb-3">
+                    <i class="fas fa-box"></i> Post-Harvest Management
+                </a>
+                <a href="/chatbot" class="btn btn-custom btn-chatbot me-3 mb-3">
+                    <i class="fas fa-comments"></i> Ask AgriPal AI
+                </a>
+                <a href="/" class="btn btn-custom btn-secondary-custom mb-3">
+                    <i class="fas fa-home"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {pageLanguage: 'en'},
+            'google_translate_element'
+        );
+    }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

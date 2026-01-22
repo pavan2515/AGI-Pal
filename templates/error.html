@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Classification - Error</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .error-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #ffa500, #32cd32, #1e90ff, #9370db);
+        }
+
+        .error-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .error-title {
+            color: #333;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .error-details {
+            background: #f8f9fa;
+            border-left: 4px solid #ff6b6b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+
+        .error-details h3 {
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-details h3::before {
+            content: '⚠️';
+            margin-right: 8px;
+        }
+
+        .error-details p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .error-details ul {
+            color: #555;
+            font-size: 14px;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .error-details li {
+            margin-bottom: 5px;
+        }
+
+        .suggestions {
+            background: #e8f5e8;
+            border-left: 4px solid #32cd32;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            text-align: left;
+        }
+
+        .suggestions h3 {
+            color: #2d5a2d;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .suggestions h3::before {
+            content: '💡';
+            margin-right: 8px;
+        }
+
+        .suggestions ul {
+            color: #2d5a2d;
+            font-size: 14px;
+            padding-left: 20px;
+        }
+
+        .suggestions li {
+            margin-bottom: 5px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #333;
+            border: 2px solid #dee2e6;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        .upload-info {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .upload-info h4 {
+            color: #856404;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .upload-info p {
+            color: #856404;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .error-title {
+                font-size: 24px;
+            }
+            
+            .error-message {
+                font-size: 16px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">
+            ❌
+        </div>
+        
+        <h1 class="error-title">Image Validation Failed</h1>
+        
+        <p class="error-message">
+            {{ error_message or "The uploaded image could not be processed for plant classification." }}
+        </p>
+
+        {% if error_details %}
+        <div class="error-details">
+            <h3>Error Details</h3>
+            {% if error_details.reason %}
+                <p><strong>Reason:</strong> {{ error_details.reason }}</p>
+            {% endif %}
+            {% if error_details.issues %}
+                <p><strong>Issues Found:</strong></p>
+                <ul>
+                    {% for issue in error_details.issues %}
+                        <li>{{ issue }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if error_details.confidence %}
+                <p><strong>Confidence Level:</strong> {{ "%.1f"|format(error_details.confidence) }}% (Minimum required: 65%)</p>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="suggestions">
+            <h3>Suggestions for Better Results</h3>
+            <ul>
+                <li>📸 Upload clear, high-quality photos of plants</li>
+                <li>🌿 Ensure the plant is the main subject of the image</li>
+                <li>☀️ Use good lighting conditions</li>
+                <li>🔍 Avoid blurry or low-resolution images</li>
+                <li>📋 Don't upload posters, documents, or text-heavy images</li>
+                <li>🎯 Include visible plant features (leaves, flowers, stems)</li>
+            </ul>
+        </div>
+
+        <div class="upload-info">
+            <h4>What We Accept:</h4>
+            <p>We only classify images that contain real plants, flowers, trees, or other botanical subjects. The image should be clear, well-lit, and show identifiable plant characteristics.</p>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ back_link if back_link else url_for('detection_tool') }}" class="btn btn-primary">
+                📤 Try Another Image
+            </a>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                🏠 Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactive feedback
+        document.addEventListener('DOMContentLoaded', function() {
+            const errorIcon = document.querySelector('.error-icon');
+            
+            // Add click animation to error icon
+            errorIcon.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = 'pulse 2s infinite';
+                }, 10);
+            });
+
+            // Auto-focus on primary action button
+            const primaryBtn = document.querySelector('.btn-primary');
+            if (primaryBtn) {
+                setTimeout(() => {
+                    primaryBtn.focus();
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>

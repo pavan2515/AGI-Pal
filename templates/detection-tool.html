@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriPal - Plant Disease Detection</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #a5d6a7;
+            --accent-color: #ffd54f;
+            --text-light: #ffffff;
+            --text-dark: #263238;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Navigation */
+        .header-nav {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn.primary {
+            background: var(--accent-color);
+            color: var(--text-dark);
+            border-color: var(--accent-color);
+        }
+
+        .nav-btn.primary:hover {
+            background: #ffeb3b;
+            color: var(--text-dark);
+        }
+
+        /* Google Translate Styling */
+        #google_translate_element {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 5px;
+        }
+
+        #google_translate_element select {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        #google_translate_element select option {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Detection Tool Section with Background */
+        .detection-tool {
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+        }
+
+        /* Background Slideshow */
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        /* Gradient Overlay */
+        .detection-tool::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.65), rgba(200, 230, 201, 0.60));
+            z-index: 1;
+        }
+
+        .tool-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tool-description {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+
+        .tool-description h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+        }
+
+        .tool-description p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+            padding-left: 0;
+        }
+
+        .benefits-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            background: rgba(255,255,255,0.7);
+            padding: 12px 12px 12px 45px;
+            border-radius: 8px;
+        }
+
+        .benefits-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 12px;
+            top: 12px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .upload-form {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .upload-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .tooltip-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            cursor: help;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: normal;
+            font-size: 0.85rem;
+            pointer-events: none;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        .file-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 200px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .file-upload:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(46, 125, 50, 0.05);
+        }
+
+        .file-upload.has-image {
+            padding: 10px;
+            min-height: 300px;
+        }
+
+        .upload-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .upload-content.hidden {
+            display: none;
+        }
+
+        .file-upload i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .file-upload p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .file-upload small {
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 280px;
+            border-radius: 8px;
+            display: none;
+            object-fit: contain;
+            z-index: 1;
+        }
+
+        .image-preview.visible {
+            display: block;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 3;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .remove-image:hover {
+            background: rgba(255, 0, 0, 1);
+            transform: scale(1.1);
+        }
+
+        .remove-image.visible {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Camera Button */
+        .camera-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .camera-btn:hover {
+            background: #1b5e20;
+            transform: scale(1.1);
+        }
+
+        /* Camera Modal */
+        .camera-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .camera-modal.active {
+            display: flex;
+        }
+
+        .camera-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        #camera-video {
+            max-width: 100%;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .camera-controls {
+            display: flex;
+            gap: 15px;
+        }
+
+        .camera-controls button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .capture-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .capture-btn:hover {
+            background: #1b5e20;
+        }
+
+        .close-camera-btn {
+            background: #f44336;
+            color: white;
+        }
+
+        .close-camera-btn:hover {
+            background: #d32f2f;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0px);
+        }
+
+        .flash-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Footer Action Buttons */
+        .footer-actions {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .action-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .action-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .btn-custom.secondary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+
+        .btn-custom.tertiary {
+            background: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
+            color: var(--text-dark);
+        }
+
+        .btn-custom.tertiary:hover {
+            color: var(--text-dark);
+        }
+        /* Loading Overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 6px solid #e0e0e0;
+            border-top: 6px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .loading-steps {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .loading-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            background: #f5f5f5;
+        }
+
+        .loading-step.active {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            transform: translateX(5px);
+        }
+
+        .loading-step.completed {
+            background: #e8f5e9;
+        }
+
+        .step-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .loading-step .step-icon {
+            background: #e0e0e0;
+            color: #999;
+        }
+
+        .loading-step.active .step-icon {
+            background: var(--primary-color);
+            color: white;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loading-step.completed .step-icon {
+            background: #4caf50;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .step-text {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .loading-step.active .step-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .loading-progress {
+            margin-top: 20px;
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), #66bb6a);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .tool-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tool-description, .upload-form {
+                max-width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-custom {
+                width: 200px;
+                justify-content: center;
+            }
+
+            .detection-tool::before {
+                background-attachment: scroll;
+            }
+
+            .hero-slide {
+                background-attachment: scroll;
+            }
+
+            .camera-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-leaf"></i> AgriPal
+            </a>
+            
+            <div class="nav-buttons">
+                <!-- Google Translate Widget -->
+                <div id="google_translate_element"></div>
+                
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-info-circle"></i> About Us
+                </a>
+                <a href="#" class="nav-btn primary">
+                    <i class="fas fa-comments"></i> AI Assistant
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Detection Tool Section -->
+    <section class="detection-tool" id="detection-tool">
+        <!-- Background Slideshow -->
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1600');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1600');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1600');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600');"></div>
+        </div>
+        
+        <div class="tool-container">
+            <div class="tool-description">
+                <h2>Plant Disease Detection Tool</h2>
+                <p>Our advanced AI-powered detection tool helps you identify plant diseases quickly and accurately. Simply upload a clear image of the affected plant part, provide some basic information, and get instant results along with customized treatment recommendations.</p>
+                
+                <ul class="benefits-list">
+                    <li>Identifies over 50+ common plant diseases affecting various crops</li>
+                    <li>Provides precise pesticide dosage based on your land area</li>
+                    <li>Suggests organic and chemical treatment options</li>
+                    <li>Offers prevention tips to avoid future outbreaks</li>
+                    <li>Maintains history of your previous detections for reference</li>
+                </ul>
+                
+                <p>The earlier you catch a plant disease, the easier it is to treat. Don't wait until your entire crop is affected - detect and treat at the first sign of symptoms!</p>
+            </div>
+            
+            <div class="upload-form">
+                <h3 class="form-title">Analyze Your Plant</h3>
+                
+                <!-- ✅ FIXED: Added action, method, and enctype attributes -->
+                <form id="detection-form" action="/predict" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="image">Plant Image</label>
+                        <div class="file-upload" id="dropArea">
+                            <div class="upload-content" id="uploadContent">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop your image here</p>
+                                <p>or</p>
+                                <p style="color: var(--primary-color); font-weight: bold;">Browse Files</p>
+                                <small>Supported formats: JPG, PNG, JPEG (Max: 5MB)</small>
+                            </div>
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                            <img id="image-preview" class="image-preview" alt="Image Preview">
+                            <button type="button" class="remove-image" id="removeImage">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <button type="button" class="camera-btn" id="cameraBtn" title="Take Photo">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" class="form-control" placeholder="e.g., Farm 1, City" value="mysuru">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="area">
+                                    Land Area
+                                    <span class="tooltip">
+                                        <span class="tooltip-icon">?</span>
+                                        <span class="tooltiptext">Enter the size of your land to get precise treatment dosage recommendations</span>
+                                    </span>
+                                </label>
+                                <input type="number" id="area" name="area" class="form-control" placeholder="Enter value" min="0.01" step="0.01" value="1200">
+                            </div>
+                            <div>
+                                <label for="area_unit">Unit</label>
+                                <select id="area_unit" name="area_unit" class="form-control">
+                                    <option value="hectare">Hectare</option>
+                                    <option value="acre">Acre</option>
+                                    <option value="square_meter" selected>Square Meter</option>
+                                    <option value="square_feet">Square Feet</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-search"></i> Detect Disease
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camera Modal -->
+    <div class="camera-modal" id="cameraModal">
+        <div class="camera-container">
+            <video id="camera-video" autoplay playsinline width="640" height="480"></video>
+            <canvas id="camera-canvas" style="display: none;"></canvas>
+            <div class="camera-controls">
+                <button class="capture-btn" id="captureBtn">
+                    <i class="fas fa-camera"></i> Capture Photo
+                </button>
+                <button class="close-camera-btn" id="closeCameraBtn">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Actions -->
+    <section class="footer-actions">
+        <div class="action-container">
+            <h3 class="action-title">Need More Help?</h3>
+            <div class="action-buttons">
+                <a href="#" class="btn-custom">
+                    <i class="fas fa-robot"></i> AI Assistant
+                </a>
+                <a href="#" class="btn-custom secondary">
+                    <i class="fas fa-users"></i> About Us
+                </a>
+                <a href="#" class="btn-custom tertiary">
+                    <i class="fas fa-envelope"></i> Contact Support
+                </a>
+                <a href="#" class="btn-custom">
+                    <i class="fas fa-history"></i> View History
+                </a>
+            </div>
+        </div>
+    </section>
+        <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <h3 class="loading-title">Analyzing Your Plant</h3>
+            <p style="color: #666; margin-bottom: 20px;">Please wait while our AI processes your image...</p>
+            
+            <div class="loading-steps">
+                <div class="loading-step" id="step1">
+                    <div class="step-icon"><i class="fas fa-upload"></i></div>
+                    <div class="step-text">Uploading image</div>
+                </div>
+                <div class="loading-step" id="step2">
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <div class="step-text">Validating plant image</div>
+                </div>
+                <div class="loading-step" id="step3">
+                    <div class="step-icon"><i class="fas fa-cut"></i></div>
+                    <div class="step-text">Segmenting individual leaves</div>
+                </div>
+                <div class="loading-step" id="step4">
+                    <div class="step-icon"><i class="fas fa-microscope"></i></div>
+                    <div class="step-text">Analyzing disease patterns</div>
+                </div>
+                <div class="loading-step" id="step5">
+                    <div class="step-icon"><i class="fas fa-brain"></i></div>
+                    <div class="step-text">Running AI prediction</div>
+                </div>
+                <div class="loading-step" id="step6">
+                    <div class="step-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="step-text">Calculating severity</div>
+                </div>
+                <div class="loading-step" id="step7">
+                    <div class="step-icon"><i class="fas fa-check"></i></div>
+                    <div class="step-text">Generating report</div>
+                </div>
+            </div>
+            
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // ========================================
+    // BACKGROUND SLIDESHOW
+    // ========================================
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-slide');
+    const totalSlides = slides.length;
+
+    function changeSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Change slide every 5 seconds
+    setInterval(changeSlide, 5000);
+
+    // ========================================
+    // FILE UPLOAD FUNCTIONALITY
+    // ========================================
+    const dropArea = document.getElementById('dropArea');
+    const fileInput = document.getElementById('image');
+    const imagePreview = document.getElementById('image-preview');
+    const uploadContent = document.getElementById('uploadContent');
+    const removeImageBtn = document.getElementById('removeImage');
+
+    // Prevent default drag behaviors
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // Highlight drop area when item is dragged over it
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+    });
+
+    function highlight() {
+        dropArea.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+        dropArea.style.backgroundColor = 'rgba(46, 125, 50, 0.1)';
+    }
+
+    function unhighlight() {
+        dropArea.style.borderColor = '#ccc';
+        dropArea.style.backgroundColor = 'white';
+    }
+
+    // Handle dropped files
+    dropArea.addEventListener('drop', handleDrop, false);
+
+    function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        
+        if (files.length > 0) {
+            displayImagePreview(files[0]);
+        }
+    }
+    
+    // Handle file input change
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            displayImagePreview(this.files[0]);
+        }
+    });
+    
+    function displayImagePreview(file) {
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                showImagePreview();
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function showImagePreview() {
+        uploadContent.classList.add('hidden');
+        imagePreview.classList.add('visible');
+        removeImageBtn.classList.add('visible');
+        dropArea.classList.add('has-image');
+    }
+
+    function hideImagePreview() {
+        uploadContent.classList.remove('hidden');
+        imagePreview.classList.remove('visible');
+        removeImageBtn.classList.remove('visible');
+        dropArea.classList.remove('has-image');
+        imagePreview.src = '';
+        fileInput.value = '';
+    }
+
+    removeImageBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        hideImagePreview();
+    });
+
+    // ========================================
+    // CAMERA FUNCTIONALITY
+    // ========================================
+    const cameraBtn = document.getElementById('cameraBtn');
+    const cameraModal = document.getElementById('cameraModal');
+    const cameraVideo = document.getElementById('camera-video');
+    const cameraCanvas = document.getElementById('camera-canvas');
+    const captureBtn = document.getElementById('captureBtn');
+    const closeCameraBtn = document.getElementById('closeCameraBtn');
+    let cameraStream = null;
+
+    cameraBtn.addEventListener('click', async function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        try {
+            cameraStream = await navigator.mediaDevices.getUserMedia({ 
+                video: { 
+                    facingMode: 'environment',
+                    width: { ideal: 1920 },
+                    height: { ideal: 1080 }
+                } 
+            });
+            cameraVideo.srcObject = cameraStream;
+            cameraModal.classList.add('active');
+        } catch (err) {
+            alert('Unable to access camera. Please check permissions or use file upload instead.');
+            console.error('Camera error:', err);
+        }
+    });
+
+    captureBtn.addEventListener('click', function() {
+        const canvas = cameraCanvas;
+        const video = cameraVideo;
+        
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0);
+        
+        canvas.toBlob(function(blob) {
+            const file = new File([blob], 'camera-capture.jpg', { type: 'image/jpeg' });
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            fileInput.files = dataTransfer.files;
+            
+            displayImagePreview(file);
+            closeCamera();
+        }, 'image/jpeg', 0.95);
+    });
+
+    closeCameraBtn.addEventListener('click', closeCamera);
+
+    function closeCamera() {
+        if (cameraStream) {
+            cameraStream.getTracks().forEach(track => track.stop());
+            cameraStream = null;
+        }
+        cameraModal.classList.remove('active');
+        cameraVideo.srcObject = null;
+    }
+
+    // Close camera modal when clicking outside
+    cameraModal.addEventListener('click', function(e) {
+        if (e.target === cameraModal) {
+            closeCamera();
+        }
+    });
+
+    // ========================================
+    // FORM SUBMISSION WITH LOADING ANIMATION
+    // ========================================
+    document.getElementById('detection-form').addEventListener('submit', function(e) {
+        // Validation
+        if (!fileInput.files.length) {
+            e.preventDefault();
+            alert('Please upload or capture an image first!');
+            return;
+        }
+        
+        // Show loading overlay
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        loadingOverlay.classList.add('active');
+        
+        // Simulate step-by-step progress
+        const steps = [
+            { id: 'step1', duration: 500 },   // Upload
+            { id: 'step2', duration: 1000 },  // Validate
+            { id: 'step3', duration: 3000 },  // Segment (longest step)
+            { id: 'step4', duration: 1500 },  // Analyze
+            { id: 'step5', duration: 1500 },  // Predict
+            { id: 'step6', duration: 1000 },  // Severity
+            { id: 'step7', duration: 500 }    // Report
+        ];
+        
+        let currentStepIndex = 0;
+        const progressBar = document.getElementById('progressBar');
+        
+        function activateStep(stepIndex) {
+            if (stepIndex >= steps.length) return;
+            
+            const stepElement = document.getElementById(steps[stepIndex].id);
+            stepElement.classList.add('active');
+            
+            // Update progress bar
+            const progress = ((stepIndex + 1) / steps.length) * 100;
+            progressBar.style.width = progress + '%';
+            
+            // Complete current step and move to next
+            setTimeout(() => {
+                stepElement.classList.remove('active');
+                stepElement.classList.add('completed');
+                currentStepIndex++;
+                if (currentStepIndex < steps.length) {
+                    activateStep(currentStepIndex);
+                }
+            }, steps[stepIndex].duration);
+        }
+        
+        // Start the animation
+        setTimeout(() => activateStep(0), 300);
+        
+        // Form will submit naturally to /predict
+        console.log('✅ Form submitting with loading animation');
+        console.log('📷 Image:', fileInput.files[0].name);
+        console.log('📍 Location:', document.getElementById('location').value);
+        console.log('📏 Area:', document.getElementById('area').value, document.getElementById('area_unit').value);
+    });
+
+    // ========================================
+    // SMOOTH SCROLLING
+    // ========================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Translate Script -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            includedLanguages: 'en,hi,te,ta,kn,ml,gu,pa,bn,mr,or,as'
+        }, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
