@@ -1501,7 +1501,7 @@ def get_disease_info(disease_name):
 @app.route('/')
 def index():
     logger.info("Rendering index page")
-    return render_template('index1.html')
+    return render_template('index.html')
 # Enhanced chatbot routes
 
 @app.route('/chatbot')
@@ -2460,4 +2460,5 @@ if __name__ == '__main__':
         signal_handler(signal.SIGINT, None)
     except Exception as e:
         logger.error(f"❌ Server error: {e}")
+
         sys.exit(1)
